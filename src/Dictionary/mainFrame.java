@@ -3,19 +3,7 @@ package Dictionary;
 import javax.swing.*;
 
 public class mainFrame {
-    public static  void main(String[] a){
-        JFrame layout = new JFrame();
-        layout.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        layout.setVisible(true);
-        layout.setSize(500, 500);
-
-    }
-
-
-
-
-
-
-
+    private JPanel panel1;
+    private JScrollBar scrollBar1;
+    private JTextField bdvgfTextField;
 }
-
