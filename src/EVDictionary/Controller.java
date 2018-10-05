@@ -1,5 +1,5 @@
 package EVDictionary;
-
-public class Controller {
+import javafx.fxml.Initializable;
+public class Controller  {
 
 }

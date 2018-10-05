@@ -6,13 +6,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class Dictionary extends Application {
+public class DictionaryLayout extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("EVDictionary.fxml"));
-        primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 1280, 720));
+        primaryStage.setTitle("Beyonder - Dictionary");
+        primaryStage.setScene(new Scene(root, 960, 700));
         primaryStage.show();
     }
 
