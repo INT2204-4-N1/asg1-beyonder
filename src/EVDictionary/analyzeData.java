@@ -79,7 +79,7 @@ public class analyzeData {
     public ArrayList<String> getWordList() {
         return wordList;
     }
-// test đọc file
+// test file
     public static void main(String[] a) {
         File F = new File("E_V.txt");
         analyzeData ad = new analyzeData(F);
