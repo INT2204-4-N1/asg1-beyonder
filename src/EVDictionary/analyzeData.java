@@ -16,6 +16,9 @@ public class analyzeData {
     private File file;
 
     //private String path;
+    analyzeData(){
+
+    }
     analyzeData(File _file) {
         this.file = _file;
         wordList = new ArrayList<>();
@@ -67,6 +70,7 @@ public class analyzeData {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        //return wordList;
 
 
     }
@@ -80,13 +84,13 @@ public class analyzeData {
         return wordList;
     }
 // test file
-    public static void main(String[] a) {
-        File F = new File("E_V.txt");
-        analyzeData ad = new analyzeData(F);
-        ad.readData();
-        ArrayList<String> b = ad.getWordList();
-        HashMap<String, String> c = ad.getData();
-        System.out.println(b.get(12));
-        System.out.println(c.get(b.get(12)));
-    }
+//    public static void main(String[] a) {
+//        File F = new File("E_V.txt");
+//        analyzeData ad = new analyzeData(F);
+//        ad.readData();
+//        ArrayList<String> b = ad.getWordList();
+//        HashMap<String, String> c = ad.getData();
+//        System.out.println(b.get(12));
+//        System.out.println(c.get(b.get(12)));
+//    }
 }
