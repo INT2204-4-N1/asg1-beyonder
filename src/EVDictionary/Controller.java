@@ -1,14 +1,27 @@
 package EVDictionary;
 
 
+import javafx.beans.value.ObservableStringValue;
 import javafx.fxml.FXML;
+import java.lang.String;
+
+import java.text.Format;
+import javafx.beans.value.ChangeListener;
+
+import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.fxml.Initializable;
 import java.util.ResourceBundle;
 import java.net.URL;
 import javafx.collections.ObservableList;
 import javafx.collections.FXCollections;
-import javafx.scene.control.ListView;
+import javafx.scene.control.*;
+
 import java.io.*;
 
 import javafx.scene.Scene;
@@ -18,6 +31,7 @@ import javax.swing.*;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
+import javafx.beans.value.ObservableValue;
 
 import static javafx.application.Application.launch;
 
@@ -25,63 +39,106 @@ import static javafx.application.Application.launch;
 
 public class Controller implements Initializable {
     @FXML
-    private ListView<String> wordView;
+   // private AnchorPane mainLayout;
+    private ListView<String> wordView = new ListView<>();
+    public   TextField searchField;
+    public  TextArea meaningField;
+    public Button TranButton;
+    private File F1 = new File("E_V.txt");
+    private File F2 = new File("V_E.txt");
 
-//    File F = new File("E_V.txt");
-//
-//    analyzeData analyzedata = new analyzeData(F);
-//
-//    ArrayList<String> wordList = analyzedata.readData();
-//
-//
-//    ObservableList<String> item = FXCollections.observableArrayList(wordList);
+    String s = "hùngg";
+    public analyzeData aD = new analyzeData(F1);
+
+    public ArrayList<String> a1,a2 ;
+    public HashMap<String, String> H1,H2;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        showWord();
+
+        EVtransalator();
+       // VEtransalator();
+
+
+        //showWord(a);
+
+//        TranButton.setOnAction(event ->
+//        {
+//            showMeaning();
+//        });
+        //click();
+
+    }
+
+    public void showWord(ArrayList<String> word){
+
+//
+
+        ObservableList<String> items = FXCollections.observableArrayList(word);
+        wordView.setItems(items);
 
 
     }
 
-    public void showWord(){
-        File F = new File("E_V.txt");
-
-        analyzeData analyzedata = new analyzeData(F);
-        analyzedata.readData();
-        //wordView = new ListView<String>();
-
-        ArrayList<String> wordList = analyzedata.getWordList();
-
-
-        ObservableList<String> item = FXCollections.observableArrayList(wordList);
-        wordView.setItems(item);
 
 
 
 
 
 
+    public void showMeaning(HashMap<String, String >H){
+            String text = H.get(searchField.getText());
 
+            meaningField.setText(text);
+}
+
+    public void EVtransalator(){
+        analyzeData aD = new analyzeData(F1);
+        aD.readData();
+        a1 = aD.getWordList();
+        H1 = aD.getData();
+        showWord(a1);
+        //click(a1);
+        TranButton.setOnAction(event ->
+        {
+            showMeaning(H1);
+        });
 
 
 
 
 
     }
-//  test doc file
-//    public  static void main(String[] a){
-//        File F = new File("E_V.txt");
-//        analyzeData aD = new analyzeData(F);
-//        aD.readData();
-//        //wordView = new ListView<String>();
-//        ArrayList<String> arr = aD.getWordList();
-//        HashMap<String, String> hM = aD.getData();
-//
-//        System.out.println(arr.get(12));
-//        System.out.println(hM.get(arr.get(12)));
-//
-//    }
+    public void click( ){
+        String  add  = wordView.getSelectionModel().getSelectedItem();
+        searchField.setText(add);
+    }
+
+    public void VEtransalator(){
+        analyzeData aD = new analyzeData(F2);
+        aD.readData();
+        a2 = aD.getWordList();
+        H2 = aD.getData();
+        showWord(a2);
+        //click(a2);
+        TranButton.setOnAction(event ->
+        {
+            showMeaning(H2);
+        });
+
+
+    }
+
+
+
+
+
+
+
+
+
+
 
 
 }

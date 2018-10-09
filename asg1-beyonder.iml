@@ -7,7 +7,16 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="apache-maven-3.5" level="project" />
-    <orderEntry type="library" name="jsoup-1.11.3" level="project" />
+    <orderEntry type="library" exported="" name="apache-maven-3.5" level="project" />
+    <orderEntry type="library" exported="" name="jsoup-1.11.3" level="project" />
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib/jsoup-1.11.3.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>

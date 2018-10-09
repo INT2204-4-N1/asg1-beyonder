@@ -18,14 +18,13 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="605.0" prefWidth="764.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="EVDictionary.Controller">
+<AnchorPane fx:id="mainLayout" prefHeight="605.0" prefWidth="764.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="EVDictionary.Controller">
   <children>
-    <ListView fx:id="wordView" layoutX="14.0" layoutY="91.0" prefHeight="473.0" prefWidth="200.0">
+    <ListView fx:id="wordView" layoutX="14.0" layoutY="91.0" mouseTransparent="false" onMouseClicked="#click" prefHeight="473.0" prefWidth="200.0">
       <effect>
-        <Glow />
+        <Glow level="0.29371069182389936" />
       </effect>
     </ListView>
-    <TextArea editable="false" layoutX="362.0" layoutY="91.0" prefHeight="473.0" prefWidth="356.0" />
     <TextField fx:id="searchField" layoutX="14.0" layoutY="44.0" opacity="0.85" prefHeight="26.0" prefWidth="160.0" promptText="Nhập từ cần tra..." />
     <Button fx:id="TranButton" layoutX="174.0" layoutY="44.0" mnemonicParsing="false" prefHeight="26.0" text="Dịch" />
     <MenuBar layoutX="8.0" layoutY="3.0" prefHeight="24.0" prefWidth="145.0">
@@ -55,5 +54,18 @@
         <Image url="file:/D:/Gallery/Lock%20Screen/24580857917_c72ea0eba9_o.jpg" />
       </image>
     </ImageView>
+    <Button fx:id="E_V" layoutX="262.0" layoutY="171.0" mnemonicParsing="false" onAction="#EVtransalator" text="E - V" />
+    <Button fx:id="V_E" layoutX="262.0" layoutY="220.0" mnemonicParsing="false" onAction="#VEtransalator" text="V - E" />
+    <ImageView fitHeight="91.0" fitWidth="136.5333276098901" layoutX="498.0" layoutY="0.0" pickOnBounds="true" preserveRatio="false">
+      <image>
+        <Image url="file:/D:/Gallery/28981009904_79a5e4876b_k.jpg" />
+      </image>
+    </ImageView>
+    <ImageView fitHeight="91.0" fitWidth="136.53333619505494" layoutX="635.0" layoutY="0.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+        <Image url="file:/D:/Gallery/37385846525_17061bc597_k.jpg" />
+      </image>
+    </ImageView>
+    <TextArea fx:id="meaningField" editable="false" layoutX="362.0" layoutY="91.0" prefHeight="473.0" prefWidth="410.0" styleClass="" wrapText="true" />
   </children>
 </AnchorPane>

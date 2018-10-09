@@ -83,14 +83,4 @@ public class analyzeData {
     public ArrayList<String> getWordList() {
         return wordList;
     }
-// test file
-//    public static void main(String[] a) {
-//        File F = new File("E_V.txt");
-//        analyzeData ad = new analyzeData(F);
-//        ad.readData();
-//        ArrayList<String> b = ad.getWordList();
-//        HashMap<String, String> c = ad.getData();
-//        System.out.println(b.get(12));
-//        System.out.println(c.get(b.get(12)));
-//    }
-}
+  }
