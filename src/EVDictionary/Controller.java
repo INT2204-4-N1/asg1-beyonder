@@ -1,37 +1,31 @@
 package EVDictionary;
 
 
-import javafx.beans.value.ObservableStringValue;
 import javafx.fxml.FXML;
 import java.lang.String;
 
-import java.text.Format;
-import javafx.beans.value.ChangeListener;
+import javafx.scene.web.WebView;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.StackPane;
+//import javafx.scene.web.HTMLEditor;
+import javafx.scene.web.*;
+import org.controlsfx.control.textfield.AutoCompletionBinding;
+import org.controlsfx.control.textfield.TextFields;
+
+
 import javafx.fxml.Initializable;
 import java.util.ResourceBundle;
 import java.net.URL;
 import javafx.collections.ObservableList;
 import javafx.collections.FXCollections;
-import javafx.scene.control.*;
 
-import java.io.*;
-
-import javafx.scene.Scene;
-import javafx.stage.Stage;
-
-import javax.swing.*;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
-import javafx.beans.value.ObservableValue;
 
 import static javafx.application.Application.launch;
 
@@ -42,32 +36,24 @@ public class Controller implements Initializable {
    // private AnchorPane mainLayout;
     private ListView<String> wordView = new ListView<>();
     public   TextField searchField;
-    public  TextArea meaningField;
+    public  TextArea meaningField ;
     public Button TranButton;
+   public WebView mean;
+    public HTMLEditor html;
     private File F1 = new File("E_V.txt");
     private File F2 = new File("V_E.txt");
 
-    String s = "hùngg";
-    public analyzeData aD = new analyzeData(F1);
 
-    public ArrayList<String> a1,a2 ;
-    public HashMap<String, String> H1,H2;
+
+
+    public ArrayList<String> aE_V, aV_E;
+    public HashMap<String, String> hE_V, hV_E;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
 
         EVtransalator();
-       // VEtransalator();
-
-
-        //showWord(a);
-
-//        TranButton.setOnAction(event ->
-//        {
-//            showMeaning();
-//        });
-        //click();
 
     }
 
@@ -88,21 +74,33 @@ public class Controller implements Initializable {
 
 
     public void showMeaning(HashMap<String, String >H){
-            String text = H.get(searchField.getText());
-
+            String  text = H.get(searchField.getText());
+            meaningField.setWrapText(true);
             meaningField.setText(text);
+
+
+
+
 }
 
     public void EVtransalator(){
+        meaningField.setText(" ");
+        searchField.setText("");
         analyzeData aD = new analyzeData(F1);
         aD.readData();
-        a1 = aD.getWordList();
-        H1 = aD.getData();
-        showWord(a1);
-        //click(a1);
+        aE_V = aD.getWordList();
+        hE_V = aD.getData();
+        showWord(aE_V);
+//        searchField.setOnKeyTyped(t -> {
+//            testSearch();
+//        });
+        TextFields.bindAutoCompletion(searchField,aE_V);
+
+
+
         TranButton.setOnAction(event ->
         {
-            showMeaning(H1);
+            showMeaning(hE_V);
         });
 
 
@@ -110,25 +108,39 @@ public class Controller implements Initializable {
 
 
     }
-    public void click( ){
+    public void ListViewToSearchField( ){
         String  add  = wordView.getSelectionModel().getSelectedItem();
         searchField.setText(add);
     }
 
     public void VEtransalator(){
+        meaningField.setText(" ");
+        searchField.setText("");
         analyzeData aD = new analyzeData(F2);
         aD.readData();
-        a2 = aD.getWordList();
-        H2 = aD.getData();
-        showWord(a2);
-        //click(a2);
+        aV_E = aD.getWordList();
+        hV_E = aD.getData();
+        showWord(aV_E);
+      
         TranButton.setOnAction(event ->
         {
-            showMeaning(H2);
+            showMeaning(hV_E);
         });
 
 
     }
+
+//    public void testSearch( ){
+//        String text = searchField.getText();
+//       ArrayList<String > a2 = new ArrayList<>();
+//        TextFields.bindAutoCompletion(searchField,aV_E);
+//
+//
+        //meaningField.setText(text);
+
+
+
+
 
 
 

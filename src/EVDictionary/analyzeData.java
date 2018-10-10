@@ -25,17 +25,17 @@ public class analyzeData {
         data = new HashMap<>();
     }
 
-    private BufferedReader readFile(File _file) throws IOException {
-        BufferedReader readFile = null;
-        try {
-            readFile = new BufferedReader(new FileReader(_file));
-
-        } catch (FileNotFoundException e) {
-            System.out.print("Not found");
-        }
-
-        return readFile;
-    }
+//    private BufferedReader readFile(File _file) throws IOException {
+//        BufferedReader readFile = null;
+//        try {
+//            readFile = new BufferedReader(new FileReader(_file));
+//
+//        } catch (FileNotFoundException e) {
+//            System.out.print("Not found");
+//        }
+//
+//        return readFile;
+//    }
 
     public void readData() {
         try {

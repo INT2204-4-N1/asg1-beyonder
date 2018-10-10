@@ -9,19 +9,27 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Search {
-    private ArrayList<String> wordSearch;
+    private ArrayList<String> word;
     private  File F  ;
     private ListView wordSearchView;
     private TextField searchBar;
     Search(File _F){
        this.F = _F;
-       this.wordSearch = new ArrayList<>();
+       this.word = new ArrayList<>();
 
     }
-    public void binarySearch(){
+    public void appSearch(){
         analyzeData aD = new analyzeData(F);
         aD.readData();
-        wordSearch = aD.getWordList();
+        word = aD.getWordList();
+        //searchBar.setText("dhhg");
+        ArrayList<String> word2;
+
+        String a = searchBar.getText();
+
+
+
+
 
 
 

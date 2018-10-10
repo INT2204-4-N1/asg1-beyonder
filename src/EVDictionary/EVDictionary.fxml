@@ -17,10 +17,11 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.web.*?>
 
 <AnchorPane fx:id="mainLayout" prefHeight="605.0" prefWidth="764.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="EVDictionary.Controller">
   <children>
-    <ListView fx:id="wordView" layoutX="14.0" layoutY="91.0" mouseTransparent="false" onMouseClicked="#click" prefHeight="473.0" prefWidth="200.0">
+    <ListView fx:id="wordView" layoutX="14.0" layoutY="91.0" mouseTransparent="false" onMouseClicked="#ListViewToSearchField" prefHeight="473.0" prefWidth="200.0">
       <effect>
         <Glow level="0.29371069182389936" />
       </effect>
@@ -66,6 +67,6 @@
         <Image url="file:/D:/Gallery/37385846525_17061bc597_k.jpg" />
       </image>
     </ImageView>
-    <TextArea fx:id="meaningField" editable="false" layoutX="362.0" layoutY="91.0" prefHeight="473.0" prefWidth="410.0" styleClass="" wrapText="true" />
+    <TextArea fx:id="meaningField" editable="false" layoutX="362.0" layoutY="91.0" prefHeight="473.0" prefWidth="410.0" styleClass=", null" wrapText="true" />
   </children>
 </AnchorPane>
