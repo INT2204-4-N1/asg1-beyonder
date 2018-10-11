@@ -2,46 +2,44 @@ package EVDictionary;
 
 
 import javafx.fxml.FXML;
+
+import java.io.IOException;
+import java.io.InputStream;
 import java.lang.String;
-
-import javafx.scene.web.WebView;
-
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
-//import javafx.scene.web.HTMLEditor;
-import javafx.scene.web.*;
-import org.controlsfx.control.textfield.AutoCompletionBinding;
+import marytts.MaryInterface;
+import marytts.util.data.audio.AudioPlayer;
 import org.controlsfx.control.textfield.TextFields;
-
-
 import javafx.fxml.Initializable;
 import java.util.ResourceBundle;
 import java.net.URL;
 import javafx.collections.ObservableList;
 import javafx.collections.FXCollections;
-
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import static javafx.application.Application.launch;
 
-//import javax.swing.text.html.ListView;
+
 
 public class Controller implements Initializable {
     @FXML
    // private AnchorPane mainLayout;
     private ListView<String> wordView = new ListView<>();
-    public   TextField searchField;
+    public    TextField searchField;
     public  TextArea meaningField ;
-    public Button TranButton;
-   public WebView mean;
-    public HTMLEditor html;
+    public  Button TranButton;
+    public  Button listenButton;
+
+
+
     private File F1 = new File("E_V.txt");
     private File F2 = new File("V_E.txt");
+    //public MaryInterface marytts;
 
 
 
@@ -52,8 +50,23 @@ public class Controller implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-
+        Read();
         EVtransalator();
+
+
+    }
+    public void Read(){
+        analyzeData A1= new analyzeData(F1);
+
+        A1.readData();
+        aE_V = A1.getWordList();
+        hE_V = A1.getData();
+
+        analyzeData A2 = new analyzeData(F2);
+        A2.readData();
+        aV_E = A2.getWordList();
+        hV_E = A2.getData();
+
 
     }
 
@@ -86,14 +99,9 @@ public class Controller implements Initializable {
     public void EVtransalator(){
         meaningField.setText(" ");
         searchField.setText("");
-        analyzeData aD = new analyzeData(F1);
-        aD.readData();
-        aE_V = aD.getWordList();
-        hE_V = aD.getData();
+
         showWord(aE_V);
-//        searchField.setOnKeyTyped(t -> {
-//            testSearch();
-//        });
+
         TextFields.bindAutoCompletion(searchField,aE_V);
 
 
@@ -107,6 +115,7 @@ public class Controller implements Initializable {
 
 
 
+
     }
     public void ListViewToSearchField( ){
         String  add  = wordView.getSelectionModel().getSelectedItem();
@@ -114,13 +123,12 @@ public class Controller implements Initializable {
     }
 
     public void VEtransalator(){
+
         meaningField.setText(" ");
         searchField.setText("");
-        analyzeData aD = new analyzeData(F2);
-        aD.readData();
-        aV_E = aD.getWordList();
-        hV_E = aD.getData();
+
         showWord(aV_E);
+
       
         TranButton.setOnAction(event ->
         {
@@ -128,15 +136,37 @@ public class Controller implements Initializable {
         });
 
 
+
+        TextFields.bindAutoCompletion(searchField,aV_E);
+
+
+
     }
 
-//    public void testSearch( ){
-//        String text = searchField.getText();
-//       ArrayList<String > a2 = new ArrayList<>();
-//        TextFields.bindAutoCompletion(searchField,aV_E);
-//
-//
-        //meaningField.setText(text);
+    public void TextToSpeech(){
+//        voice dfki-poppy-hsmm
+//        Voice: cmu-slt-hsmm
+//        Voice: cmu-rms-hsmm
+        Voice voice = new Voice("cmu-rms-hsmm");
+        voice.say(searchField.getText());
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -68,5 +68,6 @@
       </image>
     </ImageView>
     <TextArea fx:id="meaningField" editable="false" layoutX="362.0" layoutY="91.0" prefHeight="473.0" prefWidth="410.0" styleClass=", null" wrapText="true" />
+    <Button fx:id="listenButton" layoutX="251.0" layoutY="100.0" mnemonicParsing="false" onMouseClicked="#TextToSpeech" text="Button" />
   </children>
 </AnchorPane>
