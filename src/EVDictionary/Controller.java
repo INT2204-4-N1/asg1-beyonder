@@ -3,16 +3,10 @@ package EVDictionary;
 
 import javafx.fxml.FXML;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.lang.String;
-import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 
-import marytts.MaryInterface;
-import marytts.util.data.audio.AudioPlayer;
+import javafx.scene.control.*;
+
 import org.controlsfx.control.textfield.TextFields;
 import javafx.fxml.Initializable;
 import java.util.ResourceBundle;
@@ -30,15 +24,13 @@ public class Controller implements Initializable {
     @FXML
    // private AnchorPane mainLayout;
     private ListView<String> wordView = new ListView<>();
-    public    TextField searchField;
-    public  TextArea meaningField ;
-    public  Button TranButton;
-    public  Button listenButton;
-
-
-
+    public      TextField searchField;
+    public  TextArea meaningField  ;
+    public   Button TranButton = new Button();
+    public  Button listenButton  ;
     private File F1 = new File("E_V.txt");
     private File F2 = new File("V_E.txt");
+    public ScrollPane mean= new ScrollPane();
     //public MaryInterface marytts;
 
 
@@ -71,52 +63,29 @@ public class Controller implements Initializable {
     }
 
     public void showWord(ArrayList<String> word){
-
-//
-
         ObservableList<String> items = FXCollections.observableArrayList(word);
         wordView.setItems(items);
-
-
     }
-
-
-
-
-
-
-
     public void showMeaning(HashMap<String, String >H){
             String  text = H.get(searchField.getText());
-            meaningField.setWrapText(true);
-            meaningField.setText(text);
-
-
-
+          //  Text text1 = new Text(Text);
+        HtmlDisplay html = new HtmlDisplay() ;
+        html.start(text,mean);
 
 }
 
     public void EVtransalator(){
-        meaningField.setText(" ");
+        HtmlDisplay htmlDisplay = new HtmlDisplay();
+        htmlDisplay.start("",mean);
         searchField.setText("");
-
         showWord(aE_V);
-
         TextFields.bindAutoCompletion(searchField,aE_V);
-
-
-
         TranButton.setOnAction(event ->
         {
             showMeaning(hE_V);
         });
-
-
-
-
-
-
     }
+
     public void ListViewToSearchField( ){
         String  add  = wordView.getSelectionModel().getSelectedItem();
         searchField.setText(add);
@@ -124,22 +93,20 @@ public class Controller implements Initializable {
 
     public void VEtransalator(){
 
-        meaningField.setText(" ");
+        //meaningField.setText("");
+        HtmlDisplay htmlDisplay = new HtmlDisplay();
+        htmlDisplay.start("",mean);
         searchField.setText("");
 
         showWord(aV_E);
+
 
       
         TranButton.setOnAction(event ->
         {
             showMeaning(hV_E);
         });
-
-
-
         TextFields.bindAutoCompletion(searchField,aV_E);
-
-
 
     }
 
