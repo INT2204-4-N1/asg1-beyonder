@@ -5,22 +5,22 @@ import java.io.FileReader;
 import java.io.IOException;
 
 
+import javafx.scene.control.ScrollPane;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
 public class testHtml {
-    public static void main(String[] abc) throws Exception {
-        File file = new File("D:\\asg1-beyonder\\E_V.txt");
-        BufferedReader test = new BufferedReader(new FileReader(file));
-        String html;
+    final WebView browser = new WebView();
+    final WebEngine webEngine = browser.getEngine();
+    public testHtml(){
+        webEngine.loadContent("");
+    }
+    public void start (String text){
+        webEngine.loadContent("");
 
-        while ((html = test.readLine()) != null){
-            System.out.println(html);
-            Document doc = Jsoup.parse(html);
-            String title = doc.title();
-
-
-        }
+        webEngine.loadContent(text);
     }
 }
