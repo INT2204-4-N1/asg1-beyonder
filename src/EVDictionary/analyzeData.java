@@ -45,7 +45,7 @@ public class analyzeData {
             String line, word, mean;
             int num = 0;
             while ((line = readFile.readLine()) != null) {
-                // trả về chỉ mục vs sự xuấ hiện đầu tiên của ký tự đã cho
+                // trả về chỉ mục vs sự xuất hiện đầu tiên của ký tự đã cho
                 int index = line.indexOf("<html>");
                 int index2 = line.indexOf("<ul>");
 
@@ -60,6 +60,7 @@ public class analyzeData {
 
                     mean = line.substring(index);
                     data.put(word, mean);
+
                 }
 
 
