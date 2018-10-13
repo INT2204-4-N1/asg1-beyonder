@@ -20,7 +20,7 @@
 <?import javafx.scene.text.*?>
 <?import javafx.scene.web.*?>
 
-<AnchorPane fx:id="mainLayout" prefHeight="605.0" prefWidth="764.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="EVDictionary.Controller">
+<AnchorPane fx:id="mainLayout" prefHeight="603.0000999999975" prefWidth="1172.0000305175781" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="EVDictionary.Controller">
   <children>
     <ListView fx:id="wordView" layoutX="14.0" layoutY="91.0" mouseTransparent="false" onMouseClicked="#ListViewToSearchField" prefHeight="473.0" prefWidth="200.0">
       <effect>
@@ -68,15 +68,25 @@
         <Image url="@img/28981009904_79a5e4876b_k.jpg" />
       </image>
     </ImageView>
-    <ImageView fitHeight="89.74990844726562" fitWidth="145.00003051757812" layoutX="626.0" layoutY="2.0" pickOnBounds="true" preserveRatio="false">
+    <ImageView fitHeight="92.74990844726562" fitWidth="145.00003051757812" layoutX="626.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="false">
       <image>
         <Image url="@img/37385846525_17061bc597_k.jpg" />
       </image>
     </ImageView>
-    <ScrollPane fx:id="mean" layoutX="362.0" layoutY="92.0" minWidth="-1.0" prefHeight="473.0" prefWidth="410.0">
+    <ScrollPane fx:id="mean" layoutX="362.0" layoutY="92.0" maxHeight="473.0" maxWidth="810.0" minWidth="-1.0" prefHeight="473.0" prefWidth="675.0">
       <content>
-        <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="464.0" prefWidth="408.0" />
+        <AnchorPane id="Content" maxHeight="464.0" maxWidth="408.0" minHeight="0.0" minWidth="0.0" prefHeight="464.0" prefWidth="408.0" />
       </content>
     </ScrollPane>
+    <ImageView fitHeight="94.99990844726562" fitWidth="132.0321044921875" layoutX="771.0" layoutY="-4.0" pickOnBounds="true" preserveRatio="false">
+      <image>
+        <Image url="@img/33414473865_371f2dc5a3_o.jpg" />
+      </image>
+    </ImageView>
+    <ImageView fitHeight="94.99980926513672" fitWidth="132.0321502685547" layoutX="904.0" layoutY="-4.0" pickOnBounds="true" preserveRatio="false">
+      <image>
+        <Image url="@img/36136023534_9d87f1e725_k.jpg" />
+      </image>
+    </ImageView>
   </children>
 </AnchorPane>

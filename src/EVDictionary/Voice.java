@@ -14,8 +14,7 @@ public class Voice
     public  MaryInterface marytts;
     public  AudioPlayer ap;
 
-    public Voice(String voiceName)
-    {
+    public Voice(String voiceName) {
         try
         {
             marytts = new LocalMaryInterface();
@@ -30,8 +29,7 @@ public class Voice
 
     }
 
-    public void say(String input)
-    {
+    public void say(String input) {
         try
         {
             AudioInputStream audio = marytts.generateAudio(input);
@@ -44,6 +42,13 @@ public class Voice
             System.err.println("Error saying phrase.");
         }
     }
+
+//    public static  void main(String[] a){
+//        Voice voice = new Voice("cmu-rms-hsmm");
+//        voice.say("hello mother fucker");
+//    }
+
+
 }
 
 
