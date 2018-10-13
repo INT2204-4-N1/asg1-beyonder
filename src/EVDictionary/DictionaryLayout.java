@@ -12,7 +12,7 @@ public class DictionaryLayout extends Application {
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("EVDictionary.fxml"));
         primaryStage.setTitle("Dictionary");
-        primaryStage.setScene(new Scene(root, 800, 650));
+        primaryStage.setScene(new Scene(root, 1080, 650));
         primaryStage.setResizable(false);
         primaryStage.show();
 
