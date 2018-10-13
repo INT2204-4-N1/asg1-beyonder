@@ -35,10 +35,5 @@ public class GoogleTransalate {
 
 
     }
-    public static void main(String [] a) throws  IOException{
-        GoogleTransalate  googleTransalate = new GoogleTransalate();
-        String s = googleTransalate.translate("en","vi", "hello");
-        System.out.print(s);
 
-    }
 }

@@ -2,6 +2,7 @@ package EVDictionary;
 
 
 import groovy.json.internal.IO;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 
 import java.io.IOException;
@@ -37,12 +38,15 @@ public class Controller implements Initializable {
     public  TextArea meaningField  ;
     public   Button TranButton = new Button();
     public  Button listenButton  ;
-    public Button ggTran;
-    public Button addWord;
-
-    private File F1 = new File("E_V.txt");
-    private File F2 = new File("V_E.txt");
+//    public Button ggTran;
+//    public Button addWord;
+    public Button OnlineSearch;
+    private File F1 = new File("data/E_V.txt");
+    private File F2 = new File("data/V_E.txt");
     public ScrollPane mean= new ScrollPane();
+    public Button ggTran = new Button("Dịch Online");
+    public  Button addWord = new Button("Thêm từ");
+
     //public MaryInterface marytts;
 
 
@@ -105,6 +109,14 @@ public class Controller implements Initializable {
         {
             showMeaning(hE_V);
         });
+        ggTran.setOnAction(event -> {
+            //stage.hide();
+            googleTransalate("en", "vi");
+        });
+        OnlineSearch.setOnAction(event -> {
+            googleTransalate("en", "vi");
+        });
+
     }
 
     public void ListViewToSearchField( ){
@@ -128,6 +140,13 @@ public class Controller implements Initializable {
             showMeaning(hV_E);
         });
         TextFields.bindAutoCompletion(searchField,aV_E);
+        ggTran.setOnAction(event -> {
+            googleTransalate("vi", "en");
+        });
+        OnlineSearch.setOnAction(event -> {
+            googleTransalate("vi", "en");
+        });
+
 
     }
 
@@ -142,24 +161,38 @@ public class Controller implements Initializable {
 
     }
 
-    public void googleTransalate(){
+    public void googleTransalate(String From, String To){
         Stage stage = new Stage();
-        stage.setTitle("HTML");
+        stage.setTitle("Dịch Online");
         stage.setWidth(300);
         stage.setHeight(300);
         Scene scene = new Scene(new Group());
         VBox root = new VBox();
         TextField ggText = new TextField();
-        TextArea ggTran = new TextArea();
+        ggText.setPromptText("Nhập từ hoặc câu bạn muốn tra vào đây");
+        TextArea ggMeans = new TextArea();
+        Button tran = new Button("Dịch");
+        Button hide = new Button("Ẩn");
         ggText.setText(searchField.getText());
-        root.getChildren().addAll(ggText,ggTran);
+        root.getChildren().addAll(ggText,ggMeans,tran,hide);
         GoogleTransalate  googleTransalate = new GoogleTransalate();
         try {
-            ggTran.setText(googleTransalate.translate("en", "vi", ggText.getText()));
+            ggMeans.setText(googleTransalate.translate(From ,To, ggText.getText()));
         }
         catch (IOException e){
             e.printStackTrace();
         }
+
+        tran.setOnAction(event -> {
+            try{
+            ggMeans.setText(googleTransalate.translate(From, To, ggText.getText()));
+            }catch (IOException e){
+                e.printStackTrace();
+            }
+
+        });
+        hide.setOnAction(event -> stage.hide());;
+
         scene.setRoot(root);
         stage.setScene(scene);
         stage.show();
@@ -167,34 +200,20 @@ public class Controller implements Initializable {
 
     public void ALERT(){
         Stage stage = new Stage();
-//        stage.setWidth(500);
-//        stage.setHeight(150);
         stage.setTitle("Từ không tồn tại, bạn muốn làm gì?");
-       // Scene scene = new Scene(new Group());
-//        Parent root = FXMLLoader.load(getClass().getResource("Alert.fxml"));
-//        stage.setScene(new Scene(root, 500, 150));
         stage.setResizable(false);
-
-
-       Pane root = new Pane();
-
-
-        Button ggTran = new Button("Dịch Online");
-        Button addWord = new Button("Thêm từ");
+        Pane root = new Pane();
         ggTran.relocate(175,30);
         addWord.relocate(75,30);
-
-
         root.getChildren().addAll(ggTran, addWord);
-
-
-
-        stage.setScene(new Scene(root, 350, 100));
+        stage.setScene(new Scene(root, 370, 100));
         stage.show();
-        ggTran.setOnAction(event -> {
+
+        ggTran.setOnMouseClicked(event ->{
             stage.hide();
-            googleTransalate();
-        });
+        } );
+
+
     }
 
 
