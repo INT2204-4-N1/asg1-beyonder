@@ -57,6 +57,11 @@ public class E_VDictionary {
         }
 
     }
+
+    /**
+     * Lấy dữ liệu từ file vào hashMap + arrayList
+     * @return
+     */
     public HashMap<String,String> getData(){
         return data;
     }

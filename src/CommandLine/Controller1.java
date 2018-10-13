@@ -65,15 +65,16 @@ public class Controller1  implements  Initializable{
      * @param H
      */
     public void showMean(HashMap<String,String> H) {
-        String  text = H.get(searchField.getText());        // lấy từ trong searchField
-        System.out.println(text);
+        convertHTML html = new convertHTML();
+        String  text = H.get(searchField.getText());        // lấy từ trong searchField để so sánh + tìm từ trong hashMap H
+        html.convert(text,mean);
     }
 
     /**
      * Sử dụng từ điển Anh-Việt
      */
     public void EVtransalator(){
-        searchField.setText("");
+        searchField.setText("");    //searchField để trống
         showWord(aE_V);
         // Auto complete TextField (Trả về các khả năng là từ mình cần tìm)
         TextFields.bindAutoCompletion(searchField,aE_V);
@@ -86,5 +87,15 @@ public class Controller1  implements  Initializable{
     public void ListViewToSearchField(){
         String put = wordView.getSelectionModel().getSelectedItem();        //khi chọn từ trong wordView, từ đấy sẽ hiển thị vào  seachField
         searchField.setText(put);
+    }
+
+    /**
+     * Sử dụng từ điển Viêt-Anh
+     */
+    public void VEtransalator(){
+        searchField.setText("");
+        showWord(aV_E);
+        TextFields.bindAutoCompletion(searchField,aV_E);    // Auto complete
+        TranButton.setOnAction(event -> showMean(hV_E));    // Click nút dịch -> hiển thị từ được dịch
     }
 }

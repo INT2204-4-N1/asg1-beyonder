@@ -15,9 +15,9 @@ public class Display extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-    Parent root = FXMLLoader.load(getClass().getResource("E_VDictionary.fxml"));
+    Parent root = FXMLLoader.load(getClass().getResource("E_VDictionary1.fxml"));
     primaryStage.setTitle("Test");
-    primaryStage.setScene(new Scene(root,600,600));
+    primaryStage.setScene(new Scene(root,850,650));
     primaryStage.show();
     }
 }
