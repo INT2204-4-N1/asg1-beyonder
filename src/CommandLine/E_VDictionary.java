@@ -1,20 +1,68 @@
 package CommandLine;
 
+import javafx.collections.ArrayChangeListener;
 import org.jsoup.Jsoup;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+
+/**
+ * Thêm từ vào ArrayList cho viêc hiển thị
+ * Trả về từ cần tra với HashList
+ * Truyền vào data từ files text
+ */
 public class E_VDictionary {
-    String[] word_explain = new String[100];
-    String [] word_target = new String[100];
+    // tạo array lưu + hiển thị từ
+    private ArrayList<String> WordList;
+    // tạo hashmap hiển thị từ với input wordlist
+    private HashMap<String,String> data;
+    private File files ;
 
-    public static void main(String [] arg) throws Exception {
-        DictionaryCommandLine1 a = new DictionaryCommandLine1();
-        a.dictionaryBasic();
+    /**
+     * Constructor
+     */
+    E_VDictionary(File _files){
+        this.files = _files;
+        WordList = new ArrayList<>();
+        data = new HashMap<>();
+    }
+    /**
+     * Tách từ riêng với phần hiển thị riêng
+     * xử lí data
+     */
+    public void readData() {
+        try{
+        BufferedReader readFile = new BufferedReader(new FileReader(files));
+        String line,word,mean;
 
-
-
-               // String s = Jsoup.parse("resolve<html><i>resolve /ri'zɔlv/</i><br/><ul><li><b><i> danh từ</i></b><ul><li><font color='#cc0000'><b> quyết tâm, ý kiên quyết</b></font><ul><li><b>to take a great resolve to shrink from no difficulty</b>: kiên quyết không lùi bước trước một khó khăn nào</li></li></ul></ul></li></ul><ul><li><b><i> động từ</i></b><ul><li><font color='#cc0000'><b> kiên quyết (làm gì)</b></font><ul><li><b>to be resolved</b>: kiên quyết</li></ul></li></ul><ul><li><font color='#cc0000'><b> quyết định</b></font></li></ul><ul><li><font color='#cc0000'><b> giải quyết (khó khăn, vấn đề, mối nghi ngờ...)</b></font></li></ul><ul><li><font color='#cc0000'><b> (hoá học) phân giải, phân tích, chuyển (sang một trạng thái khác)</b></font><ul><li><b>water may be resolved into oxygen and hydrogen</b>: nước có thể phân tích thành ôxy và hyđro</li></ul></li></ul><ul><li><font color='#cc0000'><b> tiêu độc, tiêu tan</b></font></li></ul><ul><li><font color='#cc0000'><b> (âm nhạc) chuyển sang thuận tai</b></font></li></ul><ul><li><font color='#cc").text();
-                //System.out.print(s);
+        while((line = readFile.readLine()) != null) {
+            int index = line.indexOf("<html>");
+            if (index != -1) {
+                // Lấy từ đầu đến lúc xuất hiện <html>
+                word = line.substring(0, index);
+                // Lấy hết dòng đằng sau <html>
+                mean = line.substring(index);
+                //Thêm từ vào phần tra từ
+                WordList.add(word);
+                //Thêm từ vào phần hiển thị
+                data.put(word, mean);
             }
         }
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+
+    }
+    public HashMap<String,String> getData(){
+        return data;
+    }
+    public ArrayList<String> getWordList(){
+        return WordList;
+    }
+}
 
 
