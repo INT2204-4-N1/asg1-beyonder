@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CommandLine.Controller_for_addWord">
+   <children>
+      <Label layoutX="61.0" layoutY="48.0" prefHeight="45.0" prefWidth="77.0" text="Từ">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Label layoutX="61.0" layoutY="168.0" text="Nghĩa">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <TextField fx:id="addWord" layoutX="38.0" layoutY="93.0" prefHeight="25.0" prefWidth="228.0" promptText="nhập từ muốn thêm" />
+      <TextField fx:id="addMean" layoutX="38.0" layoutY="209.0" prefHeight="25.0" prefWidth="228.0" promptText="nhập nghĩa muốn thêm" />
+      <Button fx:id="add" layoutX="80.0" layoutY="321.0" mnemonicParsing="false" text="Quất" />
+      <Button layoutX="274.0" layoutY="321.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="167.0" text="Ghê vl quay lại" />
+   </children>
+</AnchorPane>

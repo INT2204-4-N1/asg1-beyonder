@@ -20,7 +20,7 @@
 <?import javafx.scene.text.*?>
 <?import javafx.scene.web.*?>
 
-<AnchorPane fx:id="mainLayout" prefHeight="605.0" prefWidth="764.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CommandLine.Controller1">
+<AnchorPane fx:id="mainLayout" prefHeight="603.0000999999975" prefWidth="1172.0000305175781" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CommandLine.Controller1">
     <children>
         <ListView fx:id="wordView" layoutX="14.0" layoutY="91.0" mouseTransparent="false" onMouseClicked="#ListViewToSearchField" prefHeight="473.0" prefWidth="200.0">
             <effect>
@@ -53,18 +53,17 @@
         </MenuBar>
         <Button fx:id="E_V" blendMode="DARKEN" layoutX="240.0" layoutY="44.0" mnemonicParsing="false" onAction="#EVtransalator" prefHeight="26.0" text="E - V" />
         <Button fx:id="V_E" layoutX="305.0" layoutY="44.0" mnemonicParsing="false" onAction="#VEtransalator" prefHeight="26.0" text="V - E" />
-        <Button fx:id="listenButton" layoutX="214.0" layoutY="91.0" minWidth="27.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="44.9998779296875" text="Nghe">
+        <Button layoutX="214.0" layoutY="91.0" minWidth="27.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="44.9998779296875" text="Nghe">
             <font>
                 <Font size="10.0" />
             </font>
         </Button>
-
-
-        <ScrollPane fx:id="mean" layoutX="362.0" layoutY="92.0" minWidth="-1.0" prefHeight="473.0" prefWidth="410.0">
+        <ScrollPane fx:id="mean" layoutX="362.0" layoutY="92.0" maxHeight="473.0" maxWidth="810.0" minWidth="-1.0" prefHeight="473.0" prefWidth="675.0">
             <content>
-                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="464.0" prefWidth="408.0" />
+                <AnchorPane id="Content" maxHeight="464.0" maxWidth="408.0" minHeight="0.0" minWidth="0.0" prefHeight="464.0" prefWidth="408.0" />
             </content>
         </ScrollPane>
-      <Button layoutX="261.0" layoutY="217.0" mnemonicParsing="false" text="Thêm từ" />
+        <Button layoutX="174.0" layoutY="13.0" mnemonicParsing="false" prefWidth="176.0" text="Dịch Online" />
+      <Button layoutX="255.0" layoutY="194.0" mnemonicParsing="false" onAction="#AddWordBtn" text="Add Word" textAlignment="CENTER" />
     </children>
 </AnchorPane>

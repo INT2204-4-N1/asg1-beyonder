@@ -60,6 +60,7 @@ public class analyzeData {
 
                     mean = line.substring(index);
                     data.put(word, mean);
+
                 }
 
 
