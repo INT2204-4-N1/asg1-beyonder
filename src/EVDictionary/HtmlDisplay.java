@@ -26,6 +26,7 @@ public  class HtmlDisplay {
         webEngine.loadContent(text);
 
 
+
     }
 
 

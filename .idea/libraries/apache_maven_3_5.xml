@@ -2,8 +2,10 @@
   <library name="apache-maven-3.5">
     <CLASSES>
       <root url="file://D:/apache-maven-3.5.4" />
+      <root url="file://$PROJECT_DIR$/lib" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$/lib" recursive="false" />
   </library>
 </component>

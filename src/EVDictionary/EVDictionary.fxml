@@ -20,7 +20,7 @@
 <?import javafx.scene.text.*?>
 <?import javafx.scene.web.*?>
 
-<AnchorPane fx:id="mainLayout" prefHeight="603.0000999999975" prefWidth="1172.0000305175781" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="EVDictionary.Controller">
+<AnchorPane fx:id="mainLayout" blendMode="DARKEN" prefHeight="603.0000999999975" prefWidth="1172.0000305175781" styleClass="-fx-background-color: blue" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="EVDictionary.Controller">
   <children>
     <ListView fx:id="wordView" layoutX="14.0" layoutY="91.0" mouseTransparent="false" onMouseClicked="#ListViewToSearchField" prefHeight="473.0" prefWidth="200.0">
       <effect>
@@ -51,11 +51,11 @@
         <Point3D x="5.0" y="5.0" z="5.0" />
       </rotationAxis>
     </MenuBar>
-    <Button fx:id="E_V" blendMode="DARKEN" layoutX="240.0" layoutY="44.0" mnemonicParsing="false" onAction="#EVtransalator" prefHeight="26.0" text="E - V" />
+    <Button fx:id="E_V" layoutX="240.0" layoutY="44.0" mnemonicParsing="false" onAction="#EVtransalator" prefHeight="26.0" text="E - V" />
     <Button fx:id="V_E" layoutX="305.0" layoutY="44.0" mnemonicParsing="false" onAction="#VEtransalator" prefHeight="26.0" text="V - E" />
     <Button fx:id="listenButton" layoutX="214.0" layoutY="91.0" minWidth="27.0" mnemonicParsing="false" onMouseClicked="#TextToSpeech" prefHeight="28.0" prefWidth="44.9998779296875" text="Nghe">
       <font>
-        <Font size="10.0" />
+        <Font size="10.0" fx:id="x1" />
       </font>
     </Button>
     <ImageView fitHeight="91.9999008178711" fitWidth="131.8389129638672" layoutX="362.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="false">
@@ -75,7 +75,7 @@
     </ImageView>
     <ScrollPane fx:id="mean" layoutX="362.0" layoutY="92.0" maxHeight="473.0" maxWidth="810.0" minWidth="-1.0" prefHeight="473.0" prefWidth="675.0">
       <content>
-        <AnchorPane id="Content" maxHeight="464.0" maxWidth="408.0" minHeight="0.0" minWidth="0.0" prefHeight="464.0" prefWidth="408.0" />
+        <AnchorPane id="Content" fx:id="acPane" maxHeight="464.0" maxWidth="408.0" minHeight="0.0" minWidth="0.0" prefHeight="464.0" prefWidth="408.0" />
       </content>
     </ScrollPane>
     <ImageView fitHeight="94.99990844726562" fitWidth="132.0321044921875" layoutX="771.0" layoutY="-4.0" pickOnBounds="true" preserveRatio="false">
@@ -89,5 +89,8 @@
       </image>
     </ImageView>
     <Button fx:id="OnlineSearch" layoutX="174.0" layoutY="13.0" mnemonicParsing="false" prefWidth="176.0" text="Dịch Online" />
+    <Button fx:id="btAdd" font="$x1" layoutX="214.0" layoutY="140.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="45.0" text="Thêm" />
+    <Button fx:id="btEdit" layoutX="214.0" layoutY="190.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="45.0" text="Sửa" />
+    <Button fx:id="btRemove" layoutX="214.0" layoutY="242.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="44.0" text="Xoá" />
   </children>
 </AnchorPane>
