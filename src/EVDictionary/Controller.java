@@ -1,8 +1,10 @@
 package EVDictionary;
 
 
+import com.ibm.icu.text.ArabicShaping;
 import groovy.json.internal.IO;
 import javafx.event.Event;
+import javafx.scene.layout.Background;
 import javafx.fxml.FXML;
 
 import java.io.IOException;
@@ -14,8 +16,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.controlsfx.control.textfield.TextFields;
 import javafx.fxml.Initializable;
@@ -32,33 +36,30 @@ import java.util.HashMap;
 
 public class Controller implements Initializable {
     @FXML
-   // private AnchorPane mainLayout;
-    private ListView<String> wordView = new ListView<>();
+
+    private     ListView<String> wordView = new ListView<>();
+    public      AnchorPane mainLayout ;
     public      TextField searchField;
-    public  TextArea meaningField  ;
-    public   Button TranButton = new Button();
-    public  Button listenButton  ;
-//    public Button ggTran;
-//    public Button addWord;
-    public Button OnlineSearch;
-    private File F1 = new File("data/E_V.txt");
-    private File F2 = new File("data/V_E.txt");
-    public ScrollPane mean= new ScrollPane();
-    public Button ggTran = new Button("Dịch Online");
-    public  Button addWord = new Button("Thêm từ");
-
-    //public MaryInterface marytts;
-
-
-
-
-    public ArrayList<String> aE_V, aV_E;
-    public HashMap<String, String> hE_V, hV_E;
+    public      Button TranButton = new Button();
+    public      Button listenButton  ;
+    public      Button btAdd;
+    public      AnchorPane acPane;
+    public      Button btEdit;
+    public      Button btRemove;
+    public      Button OnlineSearch;
+    private     File F1 = new File("data/E_V.txt");
+    private     File F2 = new File("data/V_E.txt");
+    public      ScrollPane mean= new ScrollPane();
+    public      Button ggTran = new Button("Dịch Online");
+    public      Button addWord = new Button("Thêm từ"); // button xuất hiện trên thông báo ko tìm thấy từ
+    public      ArrayList<String> aE_V, aV_E;
+    public      HashMap<String, String> hE_V, hV_E;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
         Read();
+        mainLayout.setStyle("-fx-background-color: rgb(165,177,186)");
         EVtransalator();
 
 
@@ -105,6 +106,7 @@ public class Controller implements Initializable {
         searchField.setText("");
         showWord(aE_V);
         TextFields.bindAutoCompletion(searchField,aE_V);
+
         TranButton.setOnAction(event ->
         {
             showMeaning(hE_V);
@@ -116,6 +118,16 @@ public class Controller implements Initializable {
         OnlineSearch.setOnAction(event -> {
             googleTransalate("en", "vi");
         });
+        btAdd.setOnAction(event -> {
+            addWord(aE_V,hE_V);
+            //showWord(aE_V);
+            ArrayList<String> temp = new ArrayList<>();
+            temp = aE_V;
+            TextFields.bindAutoCompletion(searchField,temp);
+
+        });
+
+
 
     }
 
@@ -135,11 +147,10 @@ public class Controller implements Initializable {
 
 
       
-        TranButton.setOnAction(event ->
-        {
+        TranButton.setOnAction(event -> {
             showMeaning(hV_E);
         });
-        TextFields.bindAutoCompletion(searchField,aV_E);
+       TextFields.bindAutoCompletion(searchField,aV_E);
         ggTran.setOnAction(event -> {
             googleTransalate("vi", "en");
         });
@@ -163,18 +174,24 @@ public class Controller implements Initializable {
 
     public void googleTransalate(String From, String To){
         Stage stage = new Stage();
-        stage.setTitle("Dịch Online");
-        stage.setWidth(300);
-        stage.setHeight(300);
-        Scene scene = new Scene(new Group());
-        VBox root = new VBox();
+        stage.setTitle("Dịch online");
+        stage.setResizable(false);
+        Pane root = new Pane();
+        root.setStyle("-fx-background-color: rgb(165,177,186)");
         TextField ggText = new TextField();
         ggText.setPromptText("Nhập từ hoặc câu bạn muốn tra vào đây");
         TextArea ggMeans = new TextArea();
         Button tran = new Button("Dịch");
         Button hide = new Button("Ẩn");
+        tran.relocate(116,272);
+        hide.relocate(560,272);
+        ggMeans.relocate(116,87);
+        ggText.relocate(116,54);
+        ggText.setPrefWidth(319);
         ggText.setText(searchField.getText());
         root.getChildren().addAll(ggText,ggMeans,tran,hide);
+        stage.setScene(new Scene(root, 600, 350));
+
         GoogleTransalate  googleTransalate = new GoogleTransalate();
         try {
             ggMeans.setText(googleTransalate.translate(From ,To, ggText.getText()));
@@ -191,10 +208,9 @@ public class Controller implements Initializable {
             }
 
         });
-        hide.setOnAction(event -> stage.hide());;
+        hide.setOnAction(event -> stage.close());;
 
-        scene.setRoot(root);
-        stage.setScene(scene);
+
         stage.show();
     }
 
@@ -212,6 +228,48 @@ public class Controller implements Initializable {
         ggTran.setOnMouseClicked(event ->{
             stage.hide();
         } );
+
+
+    }
+
+    public void addWord( ArrayList<String> a,HashMap<String, String> h) {
+
+        Stage stage = new Stage();
+        stage.setTitle("Thêm từ");
+        stage.setResizable(false);
+        Button btSave  = new Button("Lưu");
+        Button btCancel= new Button("Huỷ");
+        TextField enterWord = new TextField();
+        TextArea  enterMean = new TextArea();
+        Text t1 = new Text("Nhập từ   ");
+        Text t2 = new Text("Nhập nghĩa");
+        btSave.relocate(116,272);
+        btCancel.relocate(560,272);
+        enterWord.relocate(116,54);
+        enterMean.relocate(116,87);
+        t1.relocate(30,57);
+        t2.relocate(29,163);
+        Pane root = new Pane();
+        root.setStyle("-fx-background-color: rgb(165,177,186)");
+//        enterWord.setText(searchField.getText());
+//        enterMean.setText(acPane.getAccessibleText());
+        root.getChildren().addAll(btSave,btCancel,enterWord,enterMean,t1,t2);
+        stage.setScene(new Scene(root, 600, 350));
+        btSave.setOnAction(event -> {
+            a.add(enterWord.getText());
+            h.put(enterWord.getText(),enterMean.getText());
+            showWord(a);
+            //showMeaning(h);
+            stage.hide();
+
+        });
+        btCancel.setOnAction(event -> {
+            stage.hide();
+        });
+        stage.show();
+
+
+
 
 
     }
