@@ -1,6 +1,7 @@
 package CommandLine;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -15,7 +16,6 @@ import java.io.IOException;
 public class Display extends Application {
 
 
-
     public static void main(String[] args) {
         launch(args);
     }
@@ -23,13 +23,15 @@ public class Display extends Application {
 
 
         @Override
-        public void start(Stage primaryStage) throws Exception {
-            Parent root = FXMLLoader.load(getClass().getResource("E_VDictionary1.fxml"));
-            primaryStage.setTitle("Test");
-            primaryStage.setScene(new Scene(root,850,650));
-            primaryStage.show();
+        public void start(Stage primaryStage) throws IOException {
+        Parent root =   FXMLLoader.load(getClass().getResource("E_VDictionary1.fxml"));
+        Scene scene = new Scene(root,686,438);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+
         }
     /**
+     *
      * Tạo một stage mới để gọi cửa số thêm từ
      * @throws IOException
      *
@@ -45,4 +47,5 @@ public class Display extends Application {
         addWordStage.show();
     }
     */
-}
+    }
+

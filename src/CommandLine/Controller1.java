@@ -36,12 +36,10 @@ public class Controller1  implements  Initializable {
     public TextField searchField;   // ô nhập từ cần tra
     public Button TranButton = new Button();    // nút dịch
     public Button listenButton;  // nút nghe các từ
-    private File F1 = new File("E_V.txt");
-    private File F2 = new File("V_E.txt");
+    private File F1 = new File("data/E_V.txt");
+    private File F2 = new File("data/V_E.txt");
     public ScrollPane mean = new ScrollPane();   // ô hiển thị thông tin từ (phát âm, nghĩa,etc...)
-    public TextField addWordField; // ô nhập từ cần thêm
-    public TextField addMeanField; //ô nhập nghĩa cần thêm
-    public Button Add = new Button();
+
 
     public ArrayList<String> aE_V, aV_E;
     public HashMap<String, String> hE_V, hV_E;
@@ -52,8 +50,12 @@ public class Controller1  implements  Initializable {
      * @param actionEvent
      */
     @FXML
-    void AddWordBtn(ActionEvent actionEvent) {
-
+    void AddWordBtn(ActionEvent actionEvent) throws IOException {
+        Controller_for_addWord a = new Controller_for_addWord();
+        a.ShowaddWordStage();
+        /**
+         *
+         *
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("addWord.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
@@ -64,6 +66,8 @@ public class Controller1  implements  Initializable {
         } catch (Exception e) {
             System.out.println("Can't load new windows");
         }
+         */
+
     }
 
     public void initialize(URL location, ResourceBundle resouce) {
