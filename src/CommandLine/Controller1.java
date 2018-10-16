@@ -1,5 +1,6 @@
 package CommandLine;
 
+import EVDictionary.Voice;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -104,6 +105,20 @@ public class Controller1  implements  Initializable {
     public void showWord(ArrayList<String> data) {
         ObservableList<String> items = FXCollections.observableList(data);  // hiển thị các từ ra ô wordView
         wordView.setItems(items);
+
+    }
+
+    /**
+     * Nút nghe trong scene.
+     */
+    public void TextToSpeech(){
+//        voice dfki-poppy-hsmm
+//        Voice: cmu-slt-hsmm
+//        Voice: cmu-rms-hsmm
+        Voice voice = new Voice("cmu-rms-hsmm");
+        voice.say(searchField.getText());
+
+
 
     }
 
