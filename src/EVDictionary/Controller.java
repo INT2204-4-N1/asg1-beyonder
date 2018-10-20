@@ -44,29 +44,33 @@ import java.util.HashMap;
 public class Controller implements Initializable {
     @FXML
 
-    private     ListView<String> wordView = new ListView<>();
-    public      AnchorPane mainLayout ;
-    public      TextField searchField;
-    public      Button TranButton = new Button();
-    public      Button listenButton  ;
-    public      Button btAdd;
-    public      AnchorPane acPane;
-    public      Button btEdit;
-    public      Button btRemove;
-    public      Button OnlineSearch;
-    private     File F1 = new File("data/E_V.txt");
-    private     File F2 = new File("data/V_E.txt");
-    public      ScrollPane mean= new ScrollPane();
-    public      Button ggTran = new Button("Dịch Online");
-    public      Button addWord = new Button("Thêm từ"); // button xuất hiện trên thông báo ko tìm thấy từ
-    public      ArrayList<String> aE_V, aV_E;
-    public      HashMap<String, String> hE_V, hV_E;
+    private   ListView<String> wordView = new ListView<>();
+    public    AnchorPane mainLayout  ;
+    public    TextField searchField   ;
+    public    Button TranButton;
+    public    Button listenButton  ;
+    public    Button btAdd ;
+    public    AnchorPane acPane ;
+    public    Button btEdit ;
+    public    Button btRemove  ;
+    public    Button OnlineSearch ;
+    public    File F1 = new File("data/E_V.txt");
+    public    File F2 = new File("data/V_E.txt");
+    public    ScrollPane mean= new ScrollPane();
+    public    Button ggTran = new Button("Dịch Online");
+    public    Button addWord = new Button("Thêm từ"); // button xuất hiện trên thông báo ko tìm thấy từ
+    public    ArrayList<String> aE_V, aV_E;
+    public    HashMap<String, String> hE_V, hV_E;
+    public    File F3 = new File("data/evTest.txt");
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
         Read();
         mainLayout.setStyle("-fx-background-color: rgb(165,177,186)");
+
+
         EVtransalator();
 
 
@@ -108,10 +112,13 @@ public class Controller implements Initializable {
 }
 
     public void EVtransalator(){
+
         HtmlDisplay htmlDisplay = new HtmlDisplay();
         htmlDisplay.start("",mean);
         searchField.setText("");
         showWord(aE_V);
+
+
         TextFields.bindAutoCompletion(searchField,aE_V);
 
         TranButton.setOnAction(event ->
@@ -148,12 +155,15 @@ public class Controller implements Initializable {
 
     public void VEtransalator(){
 
-        //meaningField.setText("");
+
+
+
         HtmlDisplay htmlDisplay = new HtmlDisplay();
         htmlDisplay.start("",mean);
         searchField.setText("");
 
         showWord(aV_E);
+
 
 
       
@@ -173,6 +183,9 @@ public class Controller implements Initializable {
 
 
 
+        });
+        btRemove.setOnAction(event -> {
+            removeWord(aV_E,hV_E,F2);
         });
 
 
@@ -306,32 +319,68 @@ public class Controller implements Initializable {
         Button btSave  = new Button("Lưu");
         Button btCancel= new Button("Huỷ");
         TextField enterWord = new TextField();
-        //TextArea  enterMean = new TextArea();
+
         Text t1 = new Text("Nhập từ   ");
        // Text t2 = new Text("Nhập nghĩa");
         btSave.relocate(116,272);
         btCancel.relocate(560,272);
         enterWord.relocate(116,54);
-       // enterMean.relocate(116,87);
+
         t1.relocate(30,57);
         enterWord.setText(searchField.getText());
-        //t2.relocate(29,163);
+
         Pane root = new Pane();
         root.setStyle("-fx-background-color: rgb(165,177,186)");
-//        enterWord.setText(searchField.getText());
-//        enterMean.setText(acPane.getAccessibleText());
-        //Circle c = new Circle(35,60,40);
+
 
         root.getChildren().addAll(btSave,btCancel,enterWord,t1);
         stage.setScene(new Scene(root, 600, 350));
         stage.show();
         btSave.setOnAction(event -> {
+            int i = 0;
+            for(i=0;i<a.size();i++){
+                if(a.get(i).equals(enterWord.getText())){
+                    a.remove(i);
+                }
+            }
+            showWord(a);
+            h.remove(enterWord.getText());
+            try{
+                FileWriter fw = new FileWriter(F);
+                fw.write(" ");
+                fw.close();
+                FileWriter fw2 = new FileWriter(F,true);
+                for(i  =0;i<a.size();i++){
+                    fw2.write(a.get(i) + h.get(a.get(i)) + "\n");
+                }
+                fw2.close();
+
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+            TextFields.bindAutoCompletion(searchField,a);
+
             stage.close();
         });
-        //Circle c = new Circle(35,60,4);
+        btCancel.setOnAction(event -> {
+            stage.close();
+        });
+
 
 
     }
+//    public static void main(String [] a){
+//        File F1 = new File("data/E_V.txt");
+//        analyzeData A1= new analyzeData(F1);
+//        ArrayList<String> a1 = new ArrayList<>();
+//        HashMap<String,String> h1 = new HashMap();
+//        A1.readData();
+//        a1 = A1.getWordList();
+//        h1 = A1.getData();
+//        System.out.print(a1.get(10));
+//        System.out.println(h1.get(a1.get(10)));
+//
+//    }
 
 
 

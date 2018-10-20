@@ -29,28 +29,6 @@
     </ListView>
     <TextField fx:id="searchField" layoutX="14.0" layoutY="44.0" opacity="0.85" prefHeight="26.0" prefWidth="160.0" promptText="Nhập từ cần tra..." />
     <Button fx:id="TranButton" layoutX="174.0" layoutY="44.0" mnemonicParsing="false" prefHeight="26.0" text="Dịch" />
-    <MenuBar layoutX="8.0" layoutY="3.0" prefHeight="24.0" prefWidth="145.0">
-      <menus>
-        <Menu mnemonicParsing="false" text="File">
-          <items>
-            <MenuItem mnemonicParsing="false" text="Close" />
-          </items>
-        </Menu>
-        <Menu mnemonicParsing="false" text="Edit">
-          <items>
-            <MenuItem mnemonicParsing="false" text="Delete" />
-          </items>
-        </Menu>
-        <Menu mnemonicParsing="false" text="Help">
-          <items>
-            <MenuItem mnemonicParsing="false" text="About" />
-          </items>
-        </Menu>
-      </menus>
-      <rotationAxis>
-        <Point3D x="5.0" y="5.0" z="5.0" />
-      </rotationAxis>
-    </MenuBar>
     <Button fx:id="E_V" layoutX="240.0" layoutY="44.0" mnemonicParsing="false" onAction="#EVtransalator" prefHeight="26.0" text="E - V" />
     <Button fx:id="V_E" layoutX="305.0" layoutY="44.0" mnemonicParsing="false" onAction="#VEtransalator" prefHeight="26.0" text="V - E" />
     <Button fx:id="listenButton" layoutX="214.0" layoutY="91.0" minWidth="27.0" mnemonicParsing="false" onMouseClicked="#TextToSpeech" prefHeight="28.0" prefWidth="44.9998779296875" text="Nghe">
@@ -92,5 +70,10 @@
     <Button fx:id="btAdd" font="$x1" layoutX="214.0" layoutY="140.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="45.0" text="Thêm" />
     <Button fx:id="btEdit" layoutX="214.0" layoutY="190.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="45.0" text="Sửa" />
     <Button fx:id="btRemove" layoutX="214.0" layoutY="242.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="44.0" text="Xoá" />
+    <ImageView fitHeight="44.0" fitWidth="174.00001525878906" layoutX="0.0" layoutY="0.0" pickOnBounds="true" preserveRatio="false">
+      <image>
+        <Image url="@img/0_U9WqpTJfczq35RPB.jpg" />
+      </image>
+    </ImageView>
   </children>
 </AnchorPane>
