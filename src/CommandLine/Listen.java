@@ -10,7 +10,7 @@ import javax.sound.sampled.AudioInputStream;
 
 public class Listen {
     public MaryInterface marytts;
-    public AudioPlayer ap;
+    public AudioPlayer ap1;
 
     /**
      * Constructor Listen load voice
@@ -21,7 +21,7 @@ public class Listen {
         {
             marytts = new LocalMaryInterface();
             marytts.setVoice(voiceName);
-            ap = new AudioPlayer();
+            ap1 = new AudioPlayer();
         }
         catch (MaryConfigurationException ex)
         {
@@ -37,8 +37,8 @@ public class Listen {
             AudioInputStream audio = marytts.generateAudio(input);
 
 
-            ap.setAudio(audio);
-            ap.start();
+            ap1.setAudio(audio);
+            ap1.start();
         }
         catch (SynthesisException ex)
         {

@@ -17,7 +17,10 @@ import java.lang.String;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -33,11 +36,13 @@ import java.util.ResourceBundle;
 
 public class Controller1  implements  Initializable {
     @FXML
-    private ListView<String> wordView = new ListView<>();  // ô hiển thị từ
+    private ListView<String> wordView = new ListView<>();  // ô hiển thị
+
     public TextField searchField;   // ô nhập từ cần tra
     public Button TranButton = new Button();    // nút dịch
     public Button listenButton;  // nút nghe các từ
-    private File F1 = new File("data/E_V.txt");
+    public Button Add = new Button();
+    private File F1 = new File("E_V.txt");
     private File F2 = new File("data/V_E.txt");
     public ScrollPane mean = new ScrollPane();   // ô hiển thị thông tin từ (phát âm, nghĩa,etc...)
 
@@ -48,28 +53,15 @@ public class Controller1  implements  Initializable {
     /**
      * Khi pop up một window mới, nếu window mới dùng cùng controller với cũ -> không thể pop up.
      * Giải pháp ? tạo 1 controller mới
-     * @param actionEvent
-     */
+     *
+     *
     @FXML
     void AddWordBtn(ActionEvent actionEvent) throws IOException {
         Controller_for_addWord a = new Controller_for_addWord();
         a.ShowaddWordStage();
-        /**
-         *
-         *
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("addWord.fxml"));
-            Parent root1 = (Parent) fxmlLoader.load();
-            Stage stage = new Stage();
-
-            stage.setScene(new Scene(root1));
-            stage.show();
-        } catch (Exception e) {
-            System.out.println("Can't load new windows");
-        }
-         */
 
     }
+    */
 
     public void initialize(URL location, ResourceBundle resouce) {
 
@@ -103,8 +95,9 @@ public class Controller1  implements  Initializable {
      * @param data
      */
     public void showWord(ArrayList<String> data) {
+        // Truyền các string con  trong data vào list quan sát
         ObservableList<String> items = FXCollections.observableList(data);  // hiển thị các từ ra ô wordView
-        wordView.setItems(items);
+        wordView.setItems(items);   // add items vào wordView
 
     }
 
@@ -115,7 +108,9 @@ public class Controller1  implements  Initializable {
 //        voice dfki-poppy-hsmm
 //        Voice: cmu-slt-hsmm
 //        Voice: cmu-rms-hsmm
-        Voice voice = new Voice("cmu-rms-hsmm");
+        // set voice character
+        Listen voice = new Listen("cmu-rms-hsmm");
+        // read aloud text in searchField
         voice.say(searchField.getText());
 
 
@@ -128,8 +123,10 @@ public class Controller1  implements  Initializable {
      * @param H
      */
     public void showMean(HashMap<String, String> H) {
+        // gọi convert html
         convertHTML html = new convertHTML();
         String text = H.get(searchField.getText());        // lấy từ trong searchField để so sánh + tìm từ trong hashMap H
+        // hiển thị từ đã được clean bởi webView
         html.convert(text, mean);
     }
 
@@ -142,6 +139,9 @@ public class Controller1  implements  Initializable {
         // Auto complete TextField (Trả về các khả năng là từ mình cần tìm)
         TextFields.bindAutoCompletion(searchField, aE_V);
         TranButton.setOnAction(event -> showMean(hE_V));
+        Add.setOnAction(event ->{
+            addWord(aE_V,hE_V);
+        });
     }
 
     /**
@@ -162,5 +162,54 @@ public class Controller1  implements  Initializable {
         TranButton.setOnAction(event -> showMean(hV_E));    // Click nút dịch -> hiển thị từ được dịch
     }
 
+    public void addWord(ArrayList<String> a,HashMap<String,String>h){
+    Stage stage = new Stage();      // create new stage
+    stage.setTitle("Thêm Từ");
+    stage.setResizable(false);
+    Button Add = new Button("Thêm từ");
+    Button Cancel = new Button("Hủy");
+    TextField enterWord = new TextField();
+    TextArea enterMean = new TextArea();
+    Text t1 = new Text("Từ");
+    Text t2 = new Text("Nghĩa");
+    // vị trí các children trong scene
+    Add.relocate(40,320);
+    Cancel.relocate(322,319);
+    enterWord.relocate(41,63);
+    enterMean.relocate(41,123);
+    t1.relocate(52,46);
+    t2.relocate(47,98);
+    // tạo một pane chứa các children
 
+    Pane root = new Pane();
+    root.setStyle("-fx-background-color: rgb(98,255,255)");
+    root.getChildren().addAll(Add,Cancel,enterWord,enterMean,t1,t2);
+    stage.setScene(new Scene(root,441,346));
+    // Nhấn nút add
+    Add.setOnAction(event -> {
+        //thêm từ vào wordList
+        a.add(enterWord.getText());
+        //thêm dữ liệu data vào hashMap mới
+        h.put(enterWord.getText(),enterMean.getText());
+                try{
+                    String _addWord = enterWord.getText();
+                    String _addMean = enterMean.getText();
+                    if (!_addWord.equals("") || !_addMean.equals("")) {
+                        BufferedWriter writer = new BufferedWriter(new FileWriter("E_V.txt", true));   // Mở files
+                        writer.newLine(); // new line
+                        writer.append("\n" + _addWord + "<html><i>" + _addWord + "</i><br/><ul><li><font color='#cc0000'><b>" + _addMean + "</b></font></li></ul></html>");
+                        writer.close();
+                    }// Đóng files
+                }catch(Exception e){}
+
+
+                // display word in Word View
+        showWord(a);
+        stage.hide();// Thoát ô thêm từ.
+    }
+    );
+
+    Cancel.setOnAction(event -> stage.hide());
+    stage.show();
+    }
 }

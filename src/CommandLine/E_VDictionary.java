@@ -47,6 +47,7 @@ public class E_VDictionary {
                 // Lấy hết dòng đằng sau <html>
                 mean = line.substring(index);
                 //Thêm từ vào phần tra từ
+
                 WordList.add(word);
                 //Thêm từ vào phần hiển thị
                 data.put(word, mean);

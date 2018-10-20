@@ -15,6 +15,7 @@ import java.awt.event.ActionEvent;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -26,25 +27,42 @@ public class Controller_for_addWord implements Initializable {
     public Button add = new Button();
     public Button hide = new Button();
 
+
     /**
      * Hàm add tác dụng thêm từ + nghĩa cho từ điển
-     */
+     *
     @FXML
-    void Add() {
+    void AddE_V() {
 
         try{
            String _addWord = addWord.getText();
            String _addMean = addMean.getText();
-            BufferedWriter writer = new BufferedWriter(new FileWriter("E_V.txt",true));   // Mở files
-            writer.append(' ');
-            writer.append(_addWord+"<html><i>" + _addWord +"</i></b><ul><li><font color='#cc0000'><b>" + _addMean + "</b></font></li></ul></li></ul></html>" );
-            writer.append("\n");
-            writer.close();     // Đóng files
+            if (!_addWord.equals("") || !_addMean.equals("")) {
+                BufferedWriter writer = new BufferedWriter(new FileWriter("E_V.txt", true));   // Mở files
+                writer.newLine(); // new line
+                writer.append("\n" + _addWord + "<html><i>" + _addWord + "</i><br/><ul><li><font color='#cc0000'><b>" + _addMean + "</b></font></li></ul></html>");
+                writer.close();
+            }// Đóng files
         }catch(Exception e){}
         closeButtonAction();
     }
 
-    /**
+    @FXML
+    void AddV_E() {
+
+        try{
+            String _addWord = addWord.getText();
+            String _addMean = addMean.getText();
+            if (!_addWord.equals("") || !_addMean.equals("")) {
+                BufferedWriter writer = new BufferedWriter(new FileWriter("V_E.txt", true));   // Mở files
+                writer.newLine(); // new line
+                writer.append("\n" + _addWord + "<html><i>" + _addWord + "</i><br/><ul><li><font color='#cc0000'><b>" + _addMean + "</b></font></li></ul></html>");
+                writer.close();
+            }// Đóng files
+        }catch(Exception e){}
+
+    }
+    **
      * Hiển thi ̣cửa sổ thêm từ mới + nghĩa mới cho từ điển
      * @throws IOException
      */
