@@ -4,9 +4,15 @@ package EVDictionary;
 import com.ibm.icu.text.ArabicShaping;
 import groovy.json.internal.IO;
 import javafx.event.Event;
+import javafx.scene.control.Button;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Background;
 import javafx.fxml.FXML;
 
+import java.awt.*;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.String;
 
@@ -19,6 +25,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.controlsfx.control.textfield.TextFields;
@@ -119,13 +126,16 @@ public class Controller implements Initializable {
             googleTransalate("en", "vi");
         });
         btAdd.setOnAction(event -> {
-            addWord(aE_V,hE_V);
+            addWord(aE_V,hE_V,F1);
             //showWord(aE_V);
-            ArrayList<String> temp = new ArrayList<>();
-            temp = aE_V;
-            TextFields.bindAutoCompletion(searchField,temp);
+
+
 
         });
+        btRemove.setOnAction(event -> {
+            removeWord(aE_V,hE_V,F1);
+        });
+
 
 
 
@@ -157,6 +167,14 @@ public class Controller implements Initializable {
         OnlineSearch.setOnAction(event -> {
             googleTransalate("vi", "en");
         });
+        btAdd.setOnAction(event -> {
+            addWord(aV_E,hV_E,F2);
+            //showWord(aE_V);
+
+
+
+        });
+
 
 
     }
@@ -232,7 +250,7 @@ public class Controller implements Initializable {
 
     }
 
-    public void addWord( ArrayList<String> a,HashMap<String, String> h) {
+    public void addWord( ArrayList<String> a,HashMap<String, String> h, File F) {
 
         Stage stage = new Stage();
         stage.setTitle("Thêm từ");
@@ -259,7 +277,15 @@ public class Controller implements Initializable {
             a.add(enterWord.getText());
             h.put(enterWord.getText(),enterMean.getText());
             showWord(a);
-            //showMeaning(h);
+            try{
+                FileWriter fw = new FileWriter(F,true);
+                fw.write(enterWord.getText() + "<html><i></i><br/><ul><li><font color='#cc0000'><b>" + enterMean.getText() +"</b></font></li></ul></html>"+ '\n');
+                fw.close();
+
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+            TextFields.bindAutoCompletion(searchField,a);
             stage.hide();
 
         });
@@ -270,6 +296,39 @@ public class Controller implements Initializable {
 
 
 
+
+
+    }
+    public void removeWord(ArrayList<String > a , HashMap<String, String> h, File F){
+        Stage stage = new Stage();
+        stage.setTitle("Xoá từ");
+        stage.setResizable(false);
+        Button btSave  = new Button("Lưu");
+        Button btCancel= new Button("Huỷ");
+        TextField enterWord = new TextField();
+        //TextArea  enterMean = new TextArea();
+        Text t1 = new Text("Nhập từ   ");
+       // Text t2 = new Text("Nhập nghĩa");
+        btSave.relocate(116,272);
+        btCancel.relocate(560,272);
+        enterWord.relocate(116,54);
+       // enterMean.relocate(116,87);
+        t1.relocate(30,57);
+        enterWord.setText(searchField.getText());
+        //t2.relocate(29,163);
+        Pane root = new Pane();
+        root.setStyle("-fx-background-color: rgb(165,177,186)");
+//        enterWord.setText(searchField.getText());
+//        enterMean.setText(acPane.getAccessibleText());
+        //Circle c = new Circle(35,60,40);
+
+        root.getChildren().addAll(btSave,btCancel,enterWord,t1);
+        stage.setScene(new Scene(root, 600, 350));
+        stage.show();
+        btSave.setOnAction(event -> {
+            stage.close();
+        });
+        //Circle c = new Circle(35,60,4);
 
 
     }
