@@ -9,9 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.lang.String;
 
 import javafx.scene.Parent;
@@ -25,8 +23,9 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import org.controlsfx.control.textfield.TextFields;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
 
-import java.io.File;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -45,7 +44,7 @@ public class Controller1  implements  Initializable {
     private File F1 = new File("E_V.txt");
     private File F2 = new File("data/V_E.txt");
     public ScrollPane mean = new ScrollPane();   // ô hiển thị thông tin từ (phát âm, nghĩa,etc...)
-
+    public Button Delete = new Button();
 
     public ArrayList<String> aE_V, aV_E;
     public HashMap<String, String> hE_V, hV_E;
@@ -142,6 +141,9 @@ public class Controller1  implements  Initializable {
         Add.setOnAction(event ->{
             addWord(aE_V,hE_V);
         });
+        Delete.setOnAction(event -> {
+            deleteWord(aE_V,hE_V);
+        });
     }
 
     /**
@@ -196,8 +198,8 @@ public class Controller1  implements  Initializable {
                     String _addMean = enterMean.getText();
                     if (!_addWord.equals("") || !_addMean.equals("")) {
                         BufferedWriter writer = new BufferedWriter(new FileWriter("E_V.txt", true));   // Mở files
-                        writer.newLine(); // new line
-                        writer.append("\n" + _addWord + "<html><i>" + _addWord + "</i><br/><ul><li><font color='#cc0000'><b>" + _addMean + "</b></font></li></ul></html>");
+
+                        writer.append("\n" +_addWord + "<html><i>" + _addWord + "</i><br/><ul><li><font color='#cc0000'><b>" + _addMean + "</b></font></li></ul></html>");
                         writer.close();
                     }// Đóng files
                 }catch(Exception e){}
@@ -211,5 +213,68 @@ public class Controller1  implements  Initializable {
 
     Cancel.setOnAction(event -> stage.hide());
     stage.show();
+    }
+    public void deleteWord(ArrayList<String> a,HashMap<String,String>h) {
+        Stage stage = new Stage();
+        stage.setTitle("Xoá từ");
+        stage.setResizable(false);
+        TextField enterWord = new TextField();
+        Button delete = new Button("Delete");
+        Button cancel = new Button("Cancel");
+        enterWord.relocate(116,98);
+        delete.relocate(60,192);
+        cancel.relocate(299,190);
+
+        Pane root = new Pane();
+        root.setStyle("-fx-background-color: rgb(98,255,255)");
+
+
+        root.getChildren().addAll(enterWord,delete,cancel);
+        stage.setScene(new Scene(root, 398, 246));
+
+
+        delete.setOnAction(event -> {
+            try {
+                /**
+                 * Cách xóa:
+                 * Tạo một file temp mới
+                 * xét từng dòng 1 của files cũ
+                 * nếu equals thì không thêm vào files moiws
+                 * rename files temp thành file cũ
+                 */
+                int  i;
+                File inputFile = new File("E_V.txt");
+                File tempFile = new File("Temp.txt");
+
+                BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+                BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile, true));
+                for (i=0;i<a.size();i++){
+                    if(a.get(i).equals(enterWord.getText())){
+                        a.remove(i);
+                    }
+                }
+                showWord(a);
+                for (i=0;i<a.size();i++){
+
+                        writer.write(a.get(i) + h.get(a.get(i)) + "\n");
+
+                }
+                writer.close();
+                reader.close();
+                // xóa file cũ
+
+                inputFile.delete();
+
+                // biến file temp thành file mới
+                boolean successful = tempFile.renameTo(inputFile);
+                System.out.println(successful);
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            stage.hide();
+        });
+        cancel.setOnAction(event -> stage.hide());
+        stage.show();
     }
 }
