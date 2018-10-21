@@ -66,14 +66,19 @@
         <Image url="@img/36136023534_9d87f1e725_k.jpg" />
       </image>
     </ImageView>
-    <Button fx:id="OnlineSearch" layoutX="174.0" layoutY="13.0" mnemonicParsing="false" prefWidth="176.0" text="Dịch Online" />
     <Button fx:id="btAdd" font="$x1" layoutX="214.0" layoutY="140.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="45.0" text="Thêm" />
-    <Button fx:id="btEdit" layoutX="214.0" layoutY="190.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="45.0" text="Sửa" />
+    <Button fx:id="btEdit" layoutX="214.0" layoutY="190.0" mnemonicParsing="false" onAction="#editWord" prefHeight="24.0" prefWidth="45.0" text="Sửa" />
     <Button fx:id="btRemove" layoutX="214.0" layoutY="242.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="44.0" text="Xoá" />
     <ImageView fitHeight="44.0" fitWidth="174.00001525878906" layoutX="0.0" layoutY="0.0" pickOnBounds="true" preserveRatio="false">
       <image>
         <Image url="@img/0_U9WqpTJfczq35RPB.jpg" />
       </image>
     </ImageView>
+    <MenuButton fx:id="onlineMenu" layoutX="174.0" layoutY="12.0" mnemonicParsing="false" prefWidth="188.0" text="                Dịch Online" textAlignment="CENTER">
+      <items>
+        <MenuItem mnemonicParsing="false" text="Mở hộp thoại nhỏ" fx:id="dialog" />
+        <MenuItem mnemonicParsing="false" onAction="#ggTran2" text="Mở Google Translate" />
+      </items>
+    </MenuButton>
   </children>
 </AnchorPane>

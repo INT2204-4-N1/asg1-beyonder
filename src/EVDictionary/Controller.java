@@ -5,6 +5,7 @@ import com.ibm.icu.text.ArabicShaping;
 import groovy.json.internal.IO;
 import javafx.event.Event;
 import javafx.scene.control.Button;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -28,9 +29,13 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 import org.controlsfx.control.textfield.TextFields;
 import javafx.fxml.Initializable;
+
+import java.security.PublicKey;
 import java.util.ResourceBundle;
 import java.net.URL;
 import javafx.collections.ObservableList;
@@ -54,7 +59,7 @@ public class Controller implements Initializable {
     public    AnchorPane acPane ;
     public    Button btEdit ;
     public    Button btRemove  ;
-    public    Button OnlineSearch ;
+    //public    Button OnlineSearch ;
     public    File F1 = new File("src/EVDictionary/data/E_V.txt");
     public    File F2 = new File("src/EVDictionary/data/V_E.txt");
     public    ScrollPane mean= new ScrollPane();
@@ -62,9 +67,11 @@ public class Controller implements Initializable {
     public    Button addWord = new Button("Thêm từ"); // button xuất hiện trên thông báo ko tìm thấy từ
     public    ArrayList<String> aE_V, aV_E;
     public    HashMap<String, String> hE_V, hV_E;
+    public    MenuButton onlineMenu;
+    public    MenuItem dialog;
 
-    public String pathE_V = "src/EVDictionary/data/E_V.txt";
-    public String pathV_E = "src/EVDictionary/data/V_E.txt";
+
+
 
 
     @Override
@@ -133,9 +140,10 @@ public class Controller implements Initializable {
             //stage.hide();
             googleTransalate("en", "vi");
         });
-        OnlineSearch.setOnAction(event -> {
+        dialog.setOnAction(event -> {
             googleTransalate("en", "vi");
         });
+        ggTran.setOnAction(event -> ggTran2());
         btAdd.setOnAction(event -> {
             addWord(aE_V,hE_V,F1);
             //showWord(aE_V);
@@ -179,9 +187,10 @@ public class Controller implements Initializable {
         ggTran.setOnAction(event -> {
             googleTransalate("vi", "en");
         });
-        OnlineSearch.setOnAction(event -> {
+        dialog.setOnAction(event -> {
             googleTransalate("vi", "en");
         });
+        ggTran.setOnAction(event -> ggTran2());
         btAdd.setOnAction(event -> {
             addWord(aV_E,hV_E,F2);
             //showWord(aE_V);
@@ -409,6 +418,47 @@ public class Controller implements Initializable {
 
         }
         return false;
+
+    }
+    public void editWord(){
+        Stage stage = new Stage();
+        stage.setTitle("Sửa từ");
+        stage.setResizable(false);
+        Button btSave  = new Button("Lưu");
+        Button btCancel= new Button("Huỷ");
+        TextField enterWord = new TextField();
+        TextArea  enterMean = new TextArea();
+        Text t1 = new Text("Sửa từ   ");
+        Text t2 = new Text("Sửa nghĩa");
+        btSave.relocate(116,272);
+        btCancel.relocate(560,272);
+        enterWord.relocate(116,54);
+        enterMean.relocate(116,87);
+        t1.relocate(30,57);
+        t2.relocate(29,163);
+        Pane root = new Pane();
+        root.setStyle("-fx-background-color: rgb(165,177,186)");
+        enterWord.setText(searchField.getText());
+        enterMean.setText(mean.getAccessibleText());
+        root.getChildren().addAll(btSave,btCancel,enterWord,enterMean,t1,t2);
+        stage.setScene(new Scene(root, 600, 350));
+        stage.show();
+
+
+    }
+   public  void ggTran2(){
+         WebView browser = new WebView();
+         WebEngine webEngine = browser.getEngine();
+         browser.setPrefWidth(960);
+         browser.setPrefHeight(600);
+         webEngine.load("https://translate.google.com/?hl=vi");
+        Stage stage = new Stage();
+        stage.setTitle("Google Translate");
+        stage.setResizable(true);
+        Pane root = new Pane();
+        root.getChildren().addAll(browser);
+        stage.setScene(new Scene(root, 960, 600));
+        stage.show();
 
     }
 //    public static void main(String [] a){
