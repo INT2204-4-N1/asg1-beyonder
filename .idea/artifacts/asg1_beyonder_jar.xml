@@ -4,19 +4,19 @@
     <root id="archive" name="asg1-beyonder.jar">
       <element id="module-output" name="asg1-beyonder" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/controlsfx-9.0.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/jsoup-1.11.3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/marytts-lang-en-5.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/voice-cmu-rms-hsmm-5.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/voice-dfki-poppy-hsmm-5.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/guava-22.0.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/voice-cmu-slt-hsmm-5.2.jar" path-in-jar="/" />
       <element id="dir-copy" path="D:/apache-maven-3.5.4" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/en_us.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/jl1.0.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/cmulex.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/lib/guava-22.0.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/lib/jsoup-1.11.3.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/fxsampler-1.0.10.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/gtranslateapi-1.0.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/lib/marytts-lang-en-5.2.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/lib/voice-cmu-rms-hsmm-5.2.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/controlsfx-samples-9.0.0.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/lib/voice-dfki-poppy-hsmm-5.2.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/marytts-client-5.2-jar-with-dependencies.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/marytts-builder-5.2-jar-with-dependencies.jar" path-in-jar="/" />
     </root>

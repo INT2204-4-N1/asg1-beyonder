@@ -1,6 +1,9 @@
 package EVDictionary;
 
+import com.sun.tools.javac.Main;
+
 import java.io.*;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -15,7 +18,7 @@ public class analyzeData {
     private HashMap<String, String> data;
     private File file;
 
-    //private String path;
+    private String path ;
     analyzeData(){
 
     }
@@ -38,12 +41,15 @@ public class analyzeData {
 //    }
 
     public void readData() {
+        //String s = this.file.getPath();
+       // InputStream is = getClass().getClassLoader().getResourceAsStream(s);
         try {
             BufferedReader readFile = new BufferedReader(new FileReader(file));
 
 
+
             String line, word, mean;
-            int num = 0;
+
             while ((line = readFile.readLine()) != null) {
                 // trả về chỉ mục vs sự xuất hiện đầu tiên của ký tự đã cho
                 int index = line.indexOf("<html>");
@@ -54,7 +60,7 @@ public class analyzeData {
                 }
                 if (index != -1) {
                     word = line.substring(0, index);
-                    word = word.trim();// xoá khoảng cách
+                    word = word.trim();// xoá khoảng cách trước và sau
                     wordList.add(word);
 
 

@@ -14,6 +14,7 @@ import javafx.fxml.FXML;
 import java.awt.*;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
 import java.lang.String;
 
 import javafx.fxml.FXMLLoader;
@@ -54,18 +55,21 @@ public class Controller implements Initializable {
     public    Button btEdit ;
     public    Button btRemove  ;
     public    Button OnlineSearch ;
-    public    File F1 = new File("data/E_V.txt");
-    public    File F2 = new File("data/V_E.txt");
+    public    File F1 = new File("src/EVDictionary/data/E_V.txt");
+    public    File F2 = new File("src/EVDictionary/data/V_E.txt");
     public    ScrollPane mean= new ScrollPane();
     public    Button ggTran = new Button("Dịch Online");
     public    Button addWord = new Button("Thêm từ"); // button xuất hiện trên thông báo ko tìm thấy từ
     public    ArrayList<String> aE_V, aV_E;
     public    HashMap<String, String> hE_V, hV_E;
-    public    File F3 = new File("data/evTest.txt");
+
+    public String pathE_V = "src/EVDictionary/data/E_V.txt";
+    public String pathV_E = "src/EVDictionary/data/V_E.txt";
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
 
         Read();
         mainLayout.setStyle("-fx-background-color: rgb(165,177,186)");
@@ -140,7 +144,17 @@ public class Controller implements Initializable {
 
         });
         btRemove.setOnAction(event -> {
-            removeWord(aE_V,hE_V,F1);
+            if(!Found(searchField.getText())) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setHeaderText("Thông báo");
+                alert.setContentText("Từ bạn cần xoá không có trong từ điển. Để chắc chắn từ bạn muốn xoá có trong danh sách,hãy tìm kiém từ và đặt từ cần xoá vào ô tìm kiếm");
+                alert.show();
+            }else
+                removeWord(aE_V,hE_V,F1);
+        });
+        addWord.setOnAction(event -> {
+            addWord(aE_V,hE_V,F1);
+
         });
 
 
@@ -154,19 +168,10 @@ public class Controller implements Initializable {
     }
 
     public void VEtransalator(){
-
-
-
-
         HtmlDisplay htmlDisplay = new HtmlDisplay();
         htmlDisplay.start("",mean);
         searchField.setText("");
-
         showWord(aV_E);
-
-
-
-      
         TranButton.setOnAction(event -> {
             showMeaning(hV_E);
         });
@@ -180,12 +185,19 @@ public class Controller implements Initializable {
         btAdd.setOnAction(event -> {
             addWord(aV_E,hV_E,F2);
             //showWord(aE_V);
-
-
-
         });
         btRemove.setOnAction(event -> {
-            removeWord(aV_E,hV_E,F2);
+            if(!Found(searchField.getText())) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setHeaderText("Thông báo");
+                alert.setContentText("Từ bạn cần xoá không có trong từ điển. Để chắc chắn từ bạn muốn xoá có trong danh sách,hãy tìm kiém từ và đặt từ cần xoá vào ô tìm kiếm");
+                alert.show();
+            }else
+                removeWord(aV_E,hV_E,F2);
+        });
+        addWord.setOnAction(event -> {
+            addWord(aV_E,hV_E,F2);
+
         });
 
 
@@ -208,19 +220,25 @@ public class Controller implements Initializable {
         stage.setTitle("Dịch online");
         stage.setResizable(false);
         Pane root = new Pane();
+        Text t1 = new Text("Nhập từ hoặc câu   ");
+        Text t2 = new Text(" Nghĩa sau khi dịch");
         root.setStyle("-fx-background-color: rgb(165,177,186)");
         TextField ggText = new TextField();
         ggText.setPromptText("Nhập từ hoặc câu bạn muốn tra vào đây");
         TextArea ggMeans = new TextArea();
         Button tran = new Button("Dịch");
         Button hide = new Button("Ẩn");
+        Button listen = new Button("Nghe");
+        t1.relocate(16,57);
+        t2.relocate(16,163);
         tran.relocate(116,272);
         hide.relocate(560,272);
+        listen.relocate(338,272);
         ggMeans.relocate(116,87);
         ggText.relocate(116,54);
         ggText.setPrefWidth(319);
         ggText.setText(searchField.getText());
-        root.getChildren().addAll(ggText,ggMeans,tran,hide);
+        root.getChildren().addAll(ggText,ggMeans,tran,hide,listen,t1,t2);
         stage.setScene(new Scene(root, 600, 350));
 
         GoogleTransalate  googleTransalate = new GoogleTransalate();
@@ -239,7 +257,12 @@ public class Controller implements Initializable {
             }
 
         });
-        hide.setOnAction(event -> stage.close());;
+        hide.setOnAction(event -> stage.close());
+        listen.setOnAction(event -> {
+            searchField.setText(ggText.getText());
+            TextToSpeech();
+            searchField.setText("");
+        });
 
 
         stage.show();
@@ -259,6 +282,9 @@ public class Controller implements Initializable {
         ggTran.setOnMouseClicked(event ->{
             stage.hide();
         } );
+        addWord.setOnMouseClicked(event -> {
+            stage.close();
+        });
 
 
     }
@@ -282,17 +308,17 @@ public class Controller implements Initializable {
         t2.relocate(29,163);
         Pane root = new Pane();
         root.setStyle("-fx-background-color: rgb(165,177,186)");
-//        enterWord.setText(searchField.getText());
+        enterWord.setText(searchField.getText());
 //        enterMean.setText(acPane.getAccessibleText());
         root.getChildren().addAll(btSave,btCancel,enterWord,enterMean,t1,t2);
         stage.setScene(new Scene(root, 600, 350));
         btSave.setOnAction(event -> {
             a.add(enterWord.getText());
-            h.put(enterWord.getText(),enterMean.getText());
+            h.put(enterWord.getText(), "<html><i>"+ enterWord.getText()+"</i><br/><ul><li><font color='#cc0000'><b>" +enterMean.getText()+"</b></font></li></ul></html>");
             showWord(a);
             try{
                 FileWriter fw = new FileWriter(F,true);
-                fw.write(enterWord.getText() + "<html><i></i><br/><ul><li><font color='#cc0000'><b>" + enterMean.getText() +"</b></font></li></ul></html>"+ '\n');
+                fw.write(enterWord.getText() + "<html><i>"+enterWord.getText()+"</i><br/><ul><li><font color='#cc0000'><b>" + enterMean.getText() +"</b></font></li></ul></html>"+ '\n');
                 fw.close();
 
             }catch (Exception e){
@@ -321,23 +347,24 @@ public class Controller implements Initializable {
         TextField enterWord = new TextField();
 
         Text t1 = new Text("Nhập từ   ");
-       // Text t2 = new Text("Nhập nghĩa");
-        btSave.relocate(116,272);
-        btCancel.relocate(560,272);
+        Text t2 = new Text("Chú ý: Hành động này không thể hoàn tác");
+        btSave.relocate(30,120);
+        btCancel.relocate(215,120);
         enterWord.relocate(116,54);
 
         t1.relocate(30,57);
+        t2.relocate(30,100);
         enterWord.setText(searchField.getText());
 
         Pane root = new Pane();
         root.setStyle("-fx-background-color: rgb(165,177,186)");
 
 
-        root.getChildren().addAll(btSave,btCancel,enterWord,t1);
-        stage.setScene(new Scene(root, 600, 350));
+        root.getChildren().addAll(btSave,btCancel,enterWord,t1,t2);
+        stage.setScene(new Scene(root, 300, 150));
         stage.show();
         btSave.setOnAction(event -> {
-            int i = 0;
+            int i ;
             for(i=0;i<a.size();i++){
                 if(a.get(i).equals(enterWord.getText())){
                     a.remove(i);
@@ -367,6 +394,21 @@ public class Controller implements Initializable {
         });
 
 
+
+    }
+    public boolean Found(String s){
+
+        for(String St : aE_V){
+            if(St.equals(s))
+                return true;
+
+        }
+        for(String St:aV_E){
+            if(St.equals(s))
+                return true;
+
+        }
+        return false;
 
     }
 //    public static void main(String [] a){
