@@ -12,6 +12,7 @@ public class DictionaryLayout extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
+        System.setProperty("file.encoding", "utf-8");
         Parent root = FXMLLoader.load(getClass().getResource("EVDictionary.fxml"));
         primaryStage.setTitle("Dictionary");
         primaryStage.setScene(new Scene(root, 1080, 650));

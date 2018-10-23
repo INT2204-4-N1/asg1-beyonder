@@ -44,7 +44,7 @@ public class analyzeData {
         //String s = this.file.getPath();
        // InputStream is = getClass().getClassLoader().getResourceAsStream(s);
         try {
-            BufferedReader readFile = new BufferedReader(new FileReader(file));
+            BufferedReader readFile = new BufferedReader(new InputStreamReader(new FileInputStream(file), "UTF-8"));
 
 
 
