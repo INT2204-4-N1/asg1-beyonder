@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.geometry.Point3D?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollBar?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.web.*?>
+
+<AnchorPane fx:id="mainLayout" blendMode="DARKEN" prefHeight="603.0000999999975" prefWidth="1172.0000305175781" style="-fx-background-image: img\24580857917_c72ea0eba9_o.jpg;" styleClass="#Pane{   -fx-background-image: url('img\24580857917_c72ea0eba9_o.jpg');" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="EVDictionary.Controller">
+  <children>
+    <ListView fx:id="wordView" layoutX="14.0" layoutY="91.0" mouseTransparent="false" onMouseClicked="#ListViewToSearchField" prefHeight="473.0" prefWidth="200.0">
+      <effect>
+        <Glow level="0.29371069182389936" />
+      </effect>
+    </ListView>
+    <TextField fx:id="searchField" layoutX="14.0" layoutY="44.0" opacity="0.85" prefHeight="26.0" prefWidth="160.0" promptText="Nhập từ cần tra..." />
+    <Button fx:id="TranButton" layoutX="174.0" layoutY="44.0" mnemonicParsing="false" prefHeight="26.0" text="Dịch" />
+    <Button fx:id="E_V" layoutX="240.0" layoutY="44.0" mnemonicParsing="false" onAction="#EVtransalator" prefHeight="26.0" text="E - V" />
+    <Button fx:id="V_E" layoutX="305.0" layoutY="44.0" mnemonicParsing="false" onAction="#VEtransalator" prefHeight="26.0" text="V - E" />
+    <Button fx:id="listenButton" layoutX="214.0" layoutY="91.0" minWidth="27.0" mnemonicParsing="false" onMouseClicked="#TextToSpeech" prefHeight="28.0" prefWidth="44.9998779296875" text="Nghe">
+      <font>
+        <Font size="10.0" fx:id="x1" />
+      </font>
+    </Button>
+    <ImageView fitHeight="91.9999008178711" fitWidth="131.8389129638672" layoutX="362.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="false">
+      <image>
+        <Image url="@img/24580857917_c72ea0eba9_o.jpg" />
+      </image>
+    </ImageView>
+    <ImageView fitHeight="91.9999008178711" fitWidth="132.03208923339844" layoutX="494.0" layoutY="0.0" pickOnBounds="true" preserveRatio="false">
+      <image>
+        <Image url="@img/28981009904_79a5e4876b_k.jpg" />
+      </image>
+    </ImageView>
+    <ImageView fitHeight="92.74990844726562" fitWidth="145.00003051757812" layoutX="626.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="false">
+      <image>
+        <Image url="@img/37385846525_17061bc597_k.jpg" />
+      </image>
+    </ImageView>
+    <ScrollPane fx:id="mean" layoutX="362.0" layoutY="92.0" maxHeight="473.0" maxWidth="810.0" minWidth="-1.0" prefHeight="473.0" prefWidth="675.0">
+      <content>
+        <AnchorPane id="Content" fx:id="acPane" maxHeight="464.0" maxWidth="408.0" minHeight="0.0" minWidth="0.0" prefHeight="464.0" prefWidth="408.0" />
+      </content>
+    </ScrollPane>
+    <ImageView fitHeight="94.99990844726562" fitWidth="132.0321044921875" layoutX="771.0" layoutY="-4.0" pickOnBounds="true" preserveRatio="false">
+      <image>
+        <Image url="@img/33414473865_371f2dc5a3_o.jpg" />
+      </image>
+    </ImageView>
+    <ImageView fitHeight="94.99980926513672" fitWidth="132.0321502685547" layoutX="904.0" layoutY="-4.0" pickOnBounds="true" preserveRatio="false">
+      <image>
+        <Image url="@img/36136023534_9d87f1e725_k.jpg" />
+      </image>
+    </ImageView>
+    <Button fx:id="btAdd" font="$x1" layoutX="214.0" layoutY="140.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="45.0" text="Thêm" />
+    <Button fx:id="btEdit" layoutX="214.0" layoutY="190.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="45.0" text="Sửa" />
+    <Button fx:id="btRemove" layoutX="214.0" layoutY="242.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="44.0" text="Xoá" />
+    <ImageView fitHeight="41.0" fitWidth="174.0" layoutX="0.0" layoutY="0.0" pickOnBounds="true" preserveRatio="false">
+      <image>
+        <Image url="@img/0_U9WqpTJfczq35RPB.jpg" />
+      </image>
+    </ImageView>
+    <MenuButton fx:id="onlineMenu" layoutX="174.0" layoutY="12.0" mnemonicParsing="false" prefWidth="188.0" text="                Dịch Online" textAlignment="CENTER">
+      <items>
+        <MenuItem mnemonicParsing="false" text="Mở hộp thoại nhỏ" fx:id="dialog" />
+        <MenuItem mnemonicParsing="false" onAction="#ggTran2" text="Mở Google Translate" />
+      </items>
+    </MenuButton>
+  </children>
+</AnchorPane>
