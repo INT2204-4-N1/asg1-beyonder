@@ -43,6 +43,7 @@ public class analyzeData {
     public void readData() {
         //String s = this.file.getPath();
        // InputStream is = getClass().getClassLoader().getResourceAsStream(s);
+        System.setProperty("file.encoding", "utf-8");
         try {
             BufferedReader readFile = new BufferedReader(new InputStreamReader(new FileInputStream(file), "UTF-8"));
 

@@ -13,9 +13,7 @@ import javafx.scene.layout.Background;
 import javafx.fxml.FXML;
 
 import java.awt.*;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.lang.String;
 
 import javafx.fxml.FXMLLoader;
@@ -41,7 +39,7 @@ import java.util.ResourceBundle;
 import java.net.URL;
 import javafx.collections.ObservableList;
 import javafx.collections.FXCollections;
-import java.io.File;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -60,7 +58,7 @@ public class Controller implements Initializable {
     public    AnchorPane acPane ;
     public    Button btEdit ;
     public    Button btRemove  ;
-    //public    Button OnlineSearch ;
+
     public    File F1 = new File("src/EVDictionary/data/E_V.txt");
     public    File F2 = new File("src/EVDictionary/data/V_E.txt");
     public    ScrollPane mean= new ScrollPane();
@@ -260,6 +258,7 @@ public class Controller implements Initializable {
         ggText.relocate(116,54);
         ggText.setPrefWidth(319);
         ggText.setText(searchField.getText());
+        ggMeans.setEditable(false);
         root.getChildren().addAll(ggText,ggMeans,tran,hide,listen,t1,t2);
         stage.setScene(new Scene(root, 600, 350));
 
@@ -347,6 +346,11 @@ public class Controller implements Initializable {
                 e.printStackTrace();
             }
             TextFields.bindAutoCompletion(searchField,a);
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setHeaderText("Thông báo");
+
+            alert.setContentText("Thêm từ thành công");
+            alert.show();
             stage.hide();
 
         });
@@ -395,10 +399,10 @@ public class Controller implements Initializable {
             showWord(a);
             h.remove(enterWord.getText());
             try{
-                FileWriter fw = new FileWriter(F);
+                Writer fw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(F), "UTF-8"));
                 fw.write("");
                 fw.close();
-                FileWriter fw2 = new FileWriter(F,true);
+                Writer fw2 = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(F), "UTF-8"));
                 for(i  =0;i<a.size();i++){
                     fw2.write(a.get(i) + h.get(a.get(i)) + "\n");
                 }
@@ -408,6 +412,10 @@ public class Controller implements Initializable {
                 e.printStackTrace();
             }
             TextFields.bindAutoCompletion(searchField,a);
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setHeaderText("Thông báo");
+            alert.setContentText("Xoá từ thành công");
+            alert.show();
 
             stage.close();
         });
@@ -448,12 +456,12 @@ public class Controller implements Initializable {
         Text t1 = new Text(" Từ   ");
         Text t2 = new Text("Sửa nghĩa");
         btSave.relocate(205,408);
-        btCancel.relocate(421,408);
+        btCancel.relocate(580,408);
         enterWord.relocate(159,53);
         enterWord.setPrefSize(200,22);
 
         enterWord.setEditable(false);
-        t1.relocate(65,67);
+        t1.relocate(65,53);
         t2.relocate(65,282);
         Pane root = new Pane();
         root.setStyle("-fx-background-color: rgb(165,177,186)");
@@ -467,12 +475,14 @@ public class Controller implements Initializable {
             String html = htmlEditor.getHtmlText();
             h.replace(searchField.getText(), h.get(searchField.getText()),html);
             try{
-                FileWriter fw1 = new FileWriter(F);
+                //FileWriter fw1 = new FileWriter(F);
+                BufferedWriter fw1 = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(F), "UTF-8"));
                 fw1.write(" ");
                 fw1.close();
-                FileWriter fw2 = new FileWriter(F,true);
+                Writer fw2 = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(F), "UTF-8"));
                 for(i  =0;i<a.size();i++){
                     fw2.write(a.get(i) + h.get(a.get(i)) + "\n");
+
                 }
                 fw2.close();
 
@@ -480,6 +490,10 @@ public class Controller implements Initializable {
                 e.printStackTrace();
             }
             TextFields.bindAutoCompletion(searchField,a);
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setHeaderText("Thông báo");
+            alert.setContentText("Từ sửa được lưu thành công");
+            alert.show();
 
             stage.close();
 
@@ -489,7 +503,7 @@ public class Controller implements Initializable {
 
 
     }
-   public  void ggTran2(){
+    public  void ggTran2(){
          WebView browser = new WebView();
          WebEngine webEngine = browser.getEngine();
          browser.setPrefWidth(960);
@@ -520,18 +534,7 @@ public class Controller implements Initializable {
         alert.show();
 
     }
-//    public static void main(String [] a){
-//        File F1 = new File("data/E_V.txt");
-//        analyzeData A1= new analyzeData(F1);
-//        ArrayList<String> a1 = new ArrayList<>();
-//        HashMap<String,String> h1 = new HashMap();
-//        A1.readData();
-//        a1 = A1.getWordList();
-//        h1 = A1.getData();
-//        System.out.print(a1.get(10));
-//        System.out.println(h1.get(a1.get(10)));
-//
-//    }
+
 
 
 
