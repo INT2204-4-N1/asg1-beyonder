@@ -334,12 +334,20 @@ public class Controller implements Initializable {
         root.getChildren().addAll(btSave,btCancel,enterWord,enterMean,t1,t2);
         stage.setScene(new Scene(root, 600, 350));
         btSave.setOnAction(event -> {
+            int i;
             a.add(enterWord.getText());
             h.put(enterWord.getText(), "<html><i>"+ enterWord.getText()+"</i><br/><ul><li><font color='#cc0000'><b>" +enterMean.getText()+"</b></font></li></ul></html>");
             showWord(a);
             try{
-                FileWriter fw = new FileWriter(F,true);
-                fw.write(enterWord.getText() + "<html><i>"+enterWord.getText()+"</i><br/><ul><li><font color='#cc0000'><b>" + enterMean.getText() +"</b></font></li></ul></html>"+ '\n');
+                //Writer fw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(F), "UTF-8"));
+                Writer fw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(F),"UTF-8"));
+
+                for(i  =0;i<a.size();i++){
+                    fw.write(a.get(i) + h.get(a.get(i)) + "\n");
+                }
+
+
+                fw.flush();
                 fw.close();
 
             }catch (Exception e){
