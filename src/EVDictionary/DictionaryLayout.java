@@ -16,6 +16,7 @@ public class DictionaryLayout extends Application {
         primaryStage.setTitle("Dictionary");
         primaryStage.setScene(new Scene(root, 1080, 650));
         primaryStage.setResizable(false);
+
         primaryStage.show();
 
     }

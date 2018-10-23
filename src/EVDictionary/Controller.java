@@ -29,6 +29,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
+import javafx.scene.web.HTMLEditor;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
@@ -80,6 +81,8 @@ public class Controller implements Initializable {
 
         Read();
         mainLayout.setStyle("-fx-background-color: rgb(165,177,186)");
+       // mainLayout.setStyle("-fx-background-image: url(img\24580857917_c72ea0eba9_o.jpg)");
+
 
 
         EVtransalator();
@@ -143,7 +146,7 @@ public class Controller implements Initializable {
         dialog.setOnAction(event -> {
             googleTransalate("en", "vi");
         });
-        ggTran.setOnAction(event -> ggTran2());
+        //ggTran.setOnAction(event -> ggTran2());
         btAdd.setOnAction(event -> {
             addWord(aE_V,hE_V,F1);
             //showWord(aE_V);
@@ -152,17 +155,24 @@ public class Controller implements Initializable {
 
         });
         btRemove.setOnAction(event -> {
-            if(!Found(searchField.getText())) {
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setHeaderText("Thông báo");
-                alert.setContentText("Từ bạn cần xoá không có trong từ điển. Để chắc chắn từ bạn muốn xoá có trong danh sách,hãy tìm kiém từ và đặt từ cần xoá vào ô tìm kiếm");
-                alert.show();
+            if(!Found(searchField.getText(),aE_V)) {
+                Alert2();
+
             }else
                 removeWord(aE_V,hE_V,F1);
         });
+
+
         addWord.setOnAction(event -> {
+
             addWord(aE_V,hE_V,F1);
 
+        });
+        btEdit.setOnAction(event -> {
+            if(!Found(searchField.getText(),aE_V)){
+                Alert2();
+            }else
+                editWord(aE_V,hE_V,F1);
         });
 
 
@@ -190,23 +200,26 @@ public class Controller implements Initializable {
         dialog.setOnAction(event -> {
             googleTransalate("vi", "en");
         });
-        ggTran.setOnAction(event -> ggTran2());
+        //ggTran.setOnAction(event -> ggTran2());
         btAdd.setOnAction(event -> {
             addWord(aV_E,hV_E,F2);
             //showWord(aE_V);
         });
         btRemove.setOnAction(event -> {
-            if(!Found(searchField.getText())) {
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setHeaderText("Thông báo");
-                alert.setContentText("Từ bạn cần xoá không có trong từ điển. Để chắc chắn từ bạn muốn xoá có trong danh sách,hãy tìm kiém từ và đặt từ cần xoá vào ô tìm kiếm");
-                alert.show();
+            if(!Found(searchField.getText(),aV_E)) {
+               Alert2();
             }else
                 removeWord(aV_E,hV_E,F2);
         });
         addWord.setOnAction(event -> {
             addWord(aV_E,hV_E,F2);
 
+        });
+        btEdit.setOnAction(event -> {
+            if(Found(searchField.getText(),aV_E)){
+                editWord(aV_E,hV_E,F2);
+            }
+            else Alert2();
         });
 
 
@@ -383,7 +396,7 @@ public class Controller implements Initializable {
             h.remove(enterWord.getText());
             try{
                 FileWriter fw = new FileWriter(F);
-                fw.write(" ");
+                fw.write("");
                 fw.close();
                 FileWriter fw2 = new FileWriter(F,true);
                 for(i  =0;i<a.size();i++){
@@ -405,44 +418,74 @@ public class Controller implements Initializable {
 
 
     }
-    public boolean Found(String s){
+    public boolean Found(String s, ArrayList<String> a){
 
-        for(String St : aE_V){
+        for(String St : a){
             if(St.equals(s))
                 return true;
 
         }
-        for(String St:aV_E){
-            if(St.equals(s))
-                return true;
 
-        }
         return false;
 
     }
-    public void editWord(){
+    public void editWord(ArrayList<String> a, HashMap<String,String> h, File F){
         Stage stage = new Stage();
         stage.setTitle("Sửa từ");
         stage.setResizable(false);
         Button btSave  = new Button("Lưu");
         Button btCancel= new Button("Huỷ");
         TextField enterWord = new TextField();
-        TextArea  enterMean = new TextArea();
-        Text t1 = new Text("Sửa từ   ");
+        //TextArea  enterMean = new TextArea();
+        HTMLEditor htmlEditor = new HTMLEditor();
+        htmlEditor.setPrefHeight(245);
+        htmlEditor.setPrefSize(500,288);
+        htmlEditor.relocate(159,120);
+
+
+        htmlEditor.setHtmlText(h.get(searchField.getText()));
+
+        Text t1 = new Text(" Từ   ");
         Text t2 = new Text("Sửa nghĩa");
-        btSave.relocate(116,272);
-        btCancel.relocate(560,272);
-        enterWord.relocate(116,54);
-        enterMean.relocate(116,87);
-        t1.relocate(30,57);
-        t2.relocate(29,163);
+        btSave.relocate(205,408);
+        btCancel.relocate(421,408);
+        enterWord.relocate(159,53);
+        enterWord.setPrefSize(200,22);
+
+        enterWord.setEditable(false);
+        t1.relocate(65,67);
+        t2.relocate(65,282);
         Pane root = new Pane();
         root.setStyle("-fx-background-color: rgb(165,177,186)");
         enterWord.setText(searchField.getText());
-        enterMean.setText(mean.getAccessibleText());
-        root.getChildren().addAll(btSave,btCancel,enterWord,enterMean,t1,t2);
-        stage.setScene(new Scene(root, 600, 350));
+
+        root.getChildren().addAll(btSave,btCancel,enterWord,htmlEditor,t1,t2);
+        stage.setScene(new Scene(root, 719, 440));
         stage.show();
+        btSave.setOnAction(event -> {
+            int i;
+            String html = htmlEditor.getHtmlText();
+            h.replace(searchField.getText(), h.get(searchField.getText()),html);
+            try{
+                FileWriter fw1 = new FileWriter(F);
+                fw1.write(" ");
+                fw1.close();
+                FileWriter fw2 = new FileWriter(F,true);
+                for(i  =0;i<a.size();i++){
+                    fw2.write(a.get(i) + h.get(a.get(i)) + "\n");
+                }
+                fw2.close();
+
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+            TextFields.bindAutoCompletion(searchField,a);
+
+            stage.close();
+
+
+        });
+        btCancel.setOnAction(event -> stage.close());
 
 
     }
@@ -452,13 +495,29 @@ public class Controller implements Initializable {
          browser.setPrefWidth(960);
          browser.setPrefHeight(600);
          webEngine.load("https://translate.google.com/?hl=vi");
+         Button back = new Button("Trở lại trang chính");
+
+         back.setPrefSize(190,21);
+         back.setLayoutX(370);
         Stage stage = new Stage();
         stage.setTitle("Google Translate");
         stage.setResizable(true);
         Pane root = new Pane();
-        root.getChildren().addAll(browser);
+        root.getChildren().addAll(browser,back);
         stage.setScene(new Scene(root, 960, 600));
+
+        back.setOnAction(event -> {
+            webEngine.load("https://translate.google.com/?hl=vi");
+
+        });
         stage.show();
+
+    }
+    public void Alert2(){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setHeaderText("Thông báo");
+        alert.setContentText("Từ không tồn tại. Để chắc chắn từ bạn muốn xoá hoặc sửa có trong danh sách,hãy tìm kiém từ và đặt từ cần xoá vào ô tìm kiếm");
+        alert.show();
 
     }
 //    public static void main(String [] a){

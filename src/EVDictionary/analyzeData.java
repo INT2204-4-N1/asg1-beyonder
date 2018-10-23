@@ -52,12 +52,12 @@ public class analyzeData {
 
             while ((line = readFile.readLine()) != null) {
                 // trả về chỉ mục vs sự xuất hiện đầu tiên của ký tự đã cho
-                int index = line.indexOf("<html>");
+                int index = line.indexOf("<html");
                 int index2 = line.indexOf("<ul>");
 
-                if (index2 != -1 && index > index2) {
-                    index = index2;
-                }
+//                if (index2 != -1 && index > index2) {
+//                    index = index2;
+//                }
                 if (index != -1) {
                     word = line.substring(0, index);
                     word = word.trim();// xoá khoảng cách trước và sau
