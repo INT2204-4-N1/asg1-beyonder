@@ -1,2 +1,4 @@
 # asg1-beyonder
-main project is in src/EVDictionary
+Beyonder Team:
+Hà Văn Bắc
+Nguyễn Tất Trường Anh
