@@ -21,7 +21,7 @@ public class GoogleTransalate {
         StringBuilder response = new StringBuilder();
         HttpURLConnection con = (HttpURLConnection) url.openConnection();
         con.setRequestProperty("User-Agent", "Mozilla/5.0");
-        BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+        BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream(),"UTF-8"));
         String inputLine;
         while ((inputLine = in.readLine()) != null) {
             response.append(inputLine);
