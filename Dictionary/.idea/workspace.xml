@@ -1,0 +1,921 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="asg1-beyonder:jar" />
+    </artifacts-to-build>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6890bdb3-0ba4-401e-867f-62a0f6b78025" name="Default Changelist" comment="Fix lỗi cực mạnh">
+      <change beforePath="$PROJECT_DIR$/artifacts/asg1_beyonder_jar/log/server.log" beforeDir="false" afterPath="$PROJECT_DIR$/artifacts/asg1_beyonder_jar/log/server.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/server.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/server.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/asg1_beyonder/log/server.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/asg1-beyonder/EVDictionary/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/asg1-beyonder/EVDictionary/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/asg1-beyonder/EVDictionary/GoogleTransalate.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/asg1-beyonder/EVDictionary/GoogleTransalate.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/asg1-beyonder/EVDictionary/analyzeData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/asg1-beyonder/EVDictionary/analyzeData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/asg1-beyonder/EVDictionary/data/E_V.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/asg1-beyonder/EVDictionary/data/E_V.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EVDictionary/DictionaryLayout.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EVDictionary/DictionaryLayout.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EVDictionary/analyzeData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EVDictionary/analyzeData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EVDictionary/data/E_V.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/EVDictionary/data/E_V.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EVDictionary/data/V_E.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/EVDictionary/data/V_E.txt" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/out/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="1140903449">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="43" />
+          <entry key="project.open.time.0" value="2" />
+          <entry key="project.open.time.1" value="5" />
+          <entry key="project.open.time.11" value="1" />
+          <entry key="project.open.time.12" value="2" />
+          <entry key="project.open.time.13" value="1" />
+          <entry key="project.open.time.14" value="1" />
+          <entry key="project.open.time.15" value="2" />
+          <entry key="project.open.time.16" value="1" />
+          <entry key="project.open.time.17" value="1" />
+          <entry key="project.open.time.18" value="1" />
+          <entry key="project.open.time.19" value="1" />
+          <entry key="project.open.time.2" value="5" />
+          <entry key="project.open.time.20" value="1" />
+          <entry key="project.open.time.21" value="1" />
+          <entry key="project.open.time.22" value="1" />
+          <entry key="project.open.time.23" value="1" />
+          <entry key="project.open.time.25" value="1" />
+          <entry key="project.open.time.28" value="2" />
+          <entry key="project.open.time.33" value="1" />
+          <entry key="project.open.time.36" value="2" />
+          <entry key="project.open.time.37" value="1" />
+          <entry key="project.open.time.40" value="1" />
+          <entry key="project.open.time.42" value="1" />
+          <entry key="project.open.time.43" value="2" />
+          <entry key="project.open.time.45" value="1" />
+          <entry key="project.open.time.46" value="1" />
+          <entry key="project.open.time.47" value="2" />
+          <entry key="project.open.time.7" value="1" />
+          <entry key="project.open.time.70" value="1" />
+          <entry key="project.open.time.9" value="1" />
+          <entry key="project.opened" value="45" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="class" value="2" />
+          <entry key="fxml" value="15" />
+          <entry key="iml" value="1" />
+          <entry key="java" value="49" />
+          <entry key="jpg" value="2" />
+          <entry key="md" value="1" />
+          <entry key="testinput" value="2" />
+          <entry key="txt" value="8" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="CLASS" value="2" />
+          <entry key="IDEA_MODULE" value="1" />
+          <entry key="Image" value="2" />
+          <entry key="JAVA" value="49" />
+          <entry key="Markdown" value="1" />
+          <entry key="PLAIN_TEXT" value="10" />
+          <entry key="XML" value="15" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="dummy" value="24" />
+          <entry key="fxml" value="5" />
+          <entry key="java" value="12318" />
+          <entry key="txt" value="286" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="12318" />
+          <entry key="PLAIN_TEXT" value="310" />
+          <entry key="XML" value="5" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/EVDictionary/DictionaryLayout.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="20" column="28" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/EVDictionary/Controller.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-544">
+              <caret line="33" column="51" selection-start-line="33" selection-start-column="51" selection-end-line="33" selection-end-column="51" />
+              <folding>
+                <element signature="method#initialize#0;class#Controller#0" />
+                <element signature="method#Read#0;class#Controller#0" />
+                <element signature="method#showWord#0;class#Controller#0" />
+                <element signature="method#showMeaning#0;class#Controller#0" />
+                <element signature="method#ListViewToSearchField#0;class#Controller#0" />
+                <element signature="method#TextToSpeech#0;class#Controller#0" />
+                <element signature="method#googleTransalate#0;class#Controller#0" />
+                <element signature="method#addWord#0;class#Controller#0" />
+                <element signature="method#Found#0;class#Controller#0" />
+                <element signature="method#editWord#0;class#Controller#0" />
+                <element signature="method#ggTran2#0;class#Controller#0" />
+                <element signature="method#Alert2#0;class#Controller#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/EVDictionary/GoogleTransalate.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="15" column="123" selection-start-line="15" selection-start-column="123" selection-end-line="15" selection-end-column="123" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/EVDictionary/EVDictionary.fxml">
+          <provider editor-type-id="JavaFX-Scene-Builder" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="697">
+              <caret line="41" selection-start-line="41" selection-end-line="41" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/EVDictionary/Voice.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="31" column="34" selection-start-line="31" selection-start-column="34" selection-end-line="31" selection-end-column="34" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#Voice#0;class#Voice#0" />
+                <element signature="method#say#0;class#Voice#0" />
+                <element signature="e#982#1025#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/EVDictionary/analyzeData.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="36" column="116" lean-forward="true" selection-start-line="36" selection-start-column="12" selection-end-line="36" selection-end-column="116" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#analyzeData#0;class#analyzeData#0" />
+                <element signature="method#analyzeData#1;class#analyzeData#0" />
+                <element signature="method#getData#0;class#analyzeData#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/EVDictionary/HtmlDisplay.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="18" column="53" selection-start-line="18" selection-start-column="53" selection-end-line="18" selection-end-column="53" />
+              <folding>
+                <element signature="method#HtmlDisplay#0;class#HtmlDisplay#0" />
+                <element signature="method#start#0;class#HtmlDisplay#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="FxmlFile" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>ggTran</find>
+      <find>@im</find>
+      <find>ggtran</find>
+      <find>translate</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/EVDictionary/TTS.java" />
+        <option value="$PROJECT_DIR$/src/EVDictionary/html.java" />
+        <option value="$PROJECT_DIR$/src/EVDictionary/Html.java" />
+        <option value="$PROJECT_DIR$/src/EVDictionary/Alert.java" />
+        <option value="$PROJECT_DIR$/src/EVDictionary/ALERT.java" />
+        <option value="$PROJECT_DIR$/src/EVDictionary/Alert.fxml" />
+        <option value="$PROJECT_DIR$/src/EVDictionary/Voice.java" />
+        <option value="$PROJECT_DIR$/src/addWord.fxml" />
+        <option value="$PROJECT_DIR$/src/EVDictionary/HtmlDisplay.java" />
+        <option value="$PROJECT_DIR$/src/EVDictionary/ggTran2.java" />
+        <option value="$PROJECT_DIR$/src/EVDictionary/Controller.java" />
+        <option value="$PROJECT_DIR$/src/EVDictionary/GoogleTransalate.java" />
+        <option value="$PROJECT_DIR$/src/EVDictionary/analyzeData.java" />
+        <option value="$PROJECT_DIR$/src/EVDictionary/DictionaryLayout.java" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="5" />
+    <option name="y" value="45" />
+    <option name="width" value="1615" />
+    <option name="height" value="880" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State />
+          <State>
+            <id>CSS</id>
+          </State>
+          <State>
+            <id>Invalid elementsCSS</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>CssUnknownTarget</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="asg1-beyonder" type="b2602c69:ProjectViewProjectNode" />
+              <item name="asg1-beyonder" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="asg1-beyonder" type="b2602c69:ProjectViewProjectNode" />
+              <item name="asg1-beyonder" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="asg1-beyonder" type="b2602c69:ProjectViewProjectNode" />
+              <item name="asg1-beyonder" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="EVDictionary" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="G:/ms team/asg1-mangekyousharingan" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.JavaFX" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\HaBac99\IdeaProjects\asg1-beyonder" />
+      <recent name="C:\Users\HaBac99\IdeaProjects\asg1-beyonder\src\EVDictionary" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.DictionaryLayout">
+    <configuration name="ALERT" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="EVDictionary.ALERT" />
+      <module name="asg1-beyonder" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="EVDictionary.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Controller" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="EVDictionary.Controller" />
+      <module name="asg1-beyonder" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="EVDictionary.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DictionaryLayout" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="EVDictionary.DictionaryLayout" />
+      <module name="asg1-beyonder" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="EVDictionary.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Display" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="CommandLine.Display" />
+      <module name="asg1-beyonder" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="CommandLine.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ggTran2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="EVDictionary.ggTran2" />
+      <module name="asg1-beyonder" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="EVDictionary.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.DictionaryLayout" />
+      <item itemvalue="Application.ALERT" />
+      <item itemvalue="Application.Display" />
+      <item itemvalue="Application.ggTran2" />
+      <item itemvalue="Application.Controller" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.DictionaryLayout" />
+        <item itemvalue="Application.Controller" />
+        <item itemvalue="Application.Display" />
+        <item itemvalue="Application.ggTran2" />
+        <item itemvalue="Application.ALERT" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6890bdb3-0ba4-401e-867f-62a0f6b78025" name="Default Changelist" comment="" />
+      <created>1539187014262</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1539187014262</updated>
+      <workItem from="1539187015523" duration="4027000" />
+      <workItem from="1539191329098" duration="614000" />
+      <workItem from="1539223854587" duration="4509000" />
+      <workItem from="1539228862066" duration="2319000" />
+      <workItem from="1539263648760" duration="841000" />
+      <workItem from="1539267682563" duration="6444000" />
+      <workItem from="1539275891714" duration="588000" />
+      <workItem from="1539328284426" duration="366000" />
+      <workItem from="1539329962336" duration="8249000" />
+      <workItem from="1539348421577" duration="3002000" />
+      <workItem from="1539354055644" duration="4000" />
+      <workItem from="1539359801560" duration="1788000" />
+      <workItem from="1539362619391" duration="2749000" />
+      <workItem from="1539390684273" duration="7904000" />
+      <workItem from="1539412780701" duration="4860000" />
+      <workItem from="1539434110484" duration="2841000" />
+      <workItem from="1539437242272" duration="11373000" />
+      <workItem from="1539509934057" duration="1033000" />
+      <workItem from="1539514567703" duration="896000" />
+      <workItem from="1539607859222" duration="6093000" />
+      <workItem from="1539617471483" duration="3666000" />
+      <workItem from="1539621576578" duration="2135000" />
+      <workItem from="1539669921846" duration="3984000" />
+      <workItem from="1539686844146" duration="1763000" />
+      <workItem from="1539760287216" duration="1747000" />
+      <workItem from="1539879439416" duration="617000" />
+      <workItem from="1540012892390" duration="632000" />
+      <workItem from="1540033788657" duration="1280000" />
+      <workItem from="1540042492066" duration="10075000" />
+      <workItem from="1540055209664" duration="99000" />
+      <workItem from="1540055461551" duration="94000" />
+      <workItem from="1540055563089" duration="2975000" />
+      <workItem from="1540106335084" duration="2819000" />
+      <workItem from="1540109695389" duration="157000" />
+      <workItem from="1540110306921" duration="7837000" />
+      <workItem from="1540128035695" duration="3278000" />
+      <workItem from="1540133307021" duration="6000" />
+      <workItem from="1540309600539" duration="11476000" />
+      <workItem from="1540322396763" duration="221000" />
+      <workItem from="1540324068322" duration="3010000" />
+      <workItem from="1540357293449" duration="217000" />
+      <workItem from="1540361004245" duration="2139000" />
+      <workItem from="1540363457220" duration="149000" />
+      <workItem from="1540363913680" duration="14000" />
+      <workItem from="1540962469634" duration="341000" />
+    </task>
+    <task id="LOCAL-00001" summary="update TextToSpeech">
+      <created>1539270929615</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1539270929615</updated>
+    </task>
+    <task id="LOCAL-00002" summary="update HtmlDisplay">
+      <created>1539338461501</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1539338461501</updated>
+    </task>
+    <task id="LOCAL-00003" summary="update">
+      <created>1539412853231</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1539412853231</updated>
+    </task>
+    <task id="LOCAL-00004" summary="update">
+      <created>1539412938569</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1539412938569</updated>
+    </task>
+    <task id="LOCAL-00005" summary="sắp xếp lại vài thứ">
+      <created>1539437888791</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1539437888791</updated>
+    </task>
+    <task id="LOCAL-00006" summary="sắp xếp lại vài thứ">
+      <created>1539437950130</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1539437950130</updated>
+    </task>
+    <task id="LOCAL-00007" summary="nothing">
+      <created>1539617537231</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1539617537231</updated>
+    </task>
+    <task id="LOCAL-00008" summary="nothing">
+      <created>1539618758244</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1539618758244</updated>
+    </task>
+    <task id="LOCAL-00009" summary="fix">
+      <created>1540034669302</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1540034669302</updated>
+    </task>
+    <task id="LOCAL-00010" summary="add xoá từ">
+      <created>1540051102783</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1540051102783</updated>
+    </task>
+    <task id="LOCAL-00011" summary="new alert for removeWord">
+      <created>1540108982328</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1540108982328</updated>
+    </task>
+    <task id="LOCAL-00012" summary="new method for online translation.">
+      <created>1540113437775</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1540113437775</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Edit word using HTML editor">
+      <created>1540314113888</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1540314113888</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Fix lỗi cực mạnh">
+      <created>1540321389895</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1540321389895</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Fix lỗi cực mạnh">
+      <created>1540322489870</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1540322489870</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Fix lỗi cực mạnh">
+      <created>1540326762853</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1540326762853</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Fix lỗi cực mạnh">
+      <created>1540326918445</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1540326918445</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Fix font GG translate on jar file">
+      <created>1540357429445</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1540357429445</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="131231000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21558245" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="UI Designer" order="3" />
+      <window_info id="Favorites" order="4" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4977307" weight="0.13064516" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50226927" side_tool="true" weight="0.13064516" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.32903227" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.32419354" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Database" order="4" />
+      <window_info anchor="right" id="Palette&#9;" order="5" />
+      <window_info anchor="right" id="Maven Projects" order="6" />
+    </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.30711043" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="UI Designer" order="3" />
+      <window_info id="Favorites" order="4" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32903227" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.32903227" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.32419354" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Database" order="4" />
+      <window_info anchor="right" id="Palette&#9;" order="5" />
+      <window_info anchor="right" id="Maven Projects" order="6" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="update TextToSpeech" />
+    <MESSAGE value="update HtmlDisplay" />
+    <MESSAGE value="update" />
+    <MESSAGE value="sắp xếp lại vài thứ" />
+    <MESSAGE value="nothing" />
+    <MESSAGE value="fix" />
+    <MESSAGE value="add xoá từ" />
+    <MESSAGE value="new alert for removeWord" />
+    <MESSAGE value="new method for online translation." />
+    <MESSAGE value="Edit word using HTML editor" />
+    <MESSAGE value="Fix lỗi cực mạnh" />
+    <MESSAGE value="Fix font GG translate on jar file" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix font GG translate on jar file" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://D:/User/Download/Compressed/freetts-1.2.2-bin_2/freetts-1.2/bin/HelloWorld.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="511">
+          <caret line="46" column="12" selection-start-line="46" selection-start-column="12" selection-end-line="46" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EVDictionary/Search.java" />
+    <entry file="file://$PROJECT_DIR$/src/EVDictionary/ALERT.java" />
+    <entry file="file://$PROJECT_DIR$/src/EVDictionary/Alert.fxml" />
+    <entry file="file://$PROJECT_DIR$/src/CommandLine/testOutputFiles.java" />
+    <entry file="file://$PROJECT_DIR$/src/CommandLine/testHtml.java" />
+    <entry file="file://$PROJECT_DIR$/src/CommandLine/E_VDictionary.fxml" />
+    <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/javafx.base/javafx/event/EventHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="44" column="9" selection-start-line="44" selection-start-column="9" selection-end-line="44" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/asg1-beyonder.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/gtranslateapi-1.0.jar!/com/gtranslate/text/TextTranslate.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EVDictionary/ggTran2.java" />
+    <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/javafx.graphics/javafx/application/Application.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="350" column="25" selection-start-line="350" selection-start-column="25" selection-end-line="350" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testInput.txt" />
+    <entry file="file://$PROJECT_DIR$/V_E.txt" />
+    <entry file="file://$PROJECT_DIR$/src/CommandLine/testinput" />
+    <entry file="file://$PROJECT_DIR$/E_V.txt" />
+    <entry file="file://$PROJECT_DIR$/src/CommandLine/convertHTML.java" />
+    <entry file="file://$PROJECT_DIR$/src/CommandLine/Display.java" />
+    <entry file="file://$PROJECT_DIR$/src/CommandLine/testInputFiles.java" />
+    <entry file="file://$PROJECT_DIR$/src/CommandLine/testDeleteFiles.java" />
+    <entry file="file://$PROJECT_DIR$/src/CommandLine/Listen.java" />
+    <entry file="file://$PROJECT_DIR$/src/CommandLine/E_VDictionary.java" />
+    <entry file="file://$PROJECT_DIR$/src/CommandLine/Controller_for_addWord.java" />
+    <entry file="file://$PROJECT_DIR$/src/EVDictionary/img/2017-04-21_04-29-41.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EVDictionary/data/E_V.txt">
+      <provider editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="LargeFileEditor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EVDictionary/data/V_E.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CommandLine/Controller1.java" />
+    <entry file="file://$PROJECT_DIR$/24580857917_c72ea0eba9_o.jpg" />
+    <entry file="file://$PROJECT_DIR$/src/addWord.fxml" />
+    <entry file="file://$PROJECT_DIR$/src/EVDictionary/DictionaryLayout.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="20" column="28" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EVDictionary/GoogleTransalate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="15" column="123" selection-start-line="15" selection-start-column="123" selection-end-line="15" selection-end-column="123" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EVDictionary/EVDictionary.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="697">
+          <caret line="41" selection-start-line="41" selection-end-line="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EVDictionary/Voice.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="31" column="34" selection-start-line="31" selection-start-column="34" selection-end-line="31" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#Voice#0;class#Voice#0" />
+            <element signature="method#say#0;class#Voice#0" />
+            <element signature="e#982#1025#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EVDictionary/HtmlDisplay.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="18" column="53" selection-start-line="18" selection-start-column="53" selection-end-line="18" selection-end-column="53" />
+          <folding>
+            <element signature="method#HtmlDisplay#0;class#HtmlDisplay#0" />
+            <element signature="method#start#0;class#HtmlDisplay#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EVDictionary/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-544">
+          <caret line="33" column="51" selection-start-line="33" selection-start-column="51" selection-end-line="33" selection-end-column="51" />
+          <folding>
+            <element signature="method#initialize#0;class#Controller#0" />
+            <element signature="method#Read#0;class#Controller#0" />
+            <element signature="method#showWord#0;class#Controller#0" />
+            <element signature="method#showMeaning#0;class#Controller#0" />
+            <element signature="method#ListViewToSearchField#0;class#Controller#0" />
+            <element signature="method#TextToSpeech#0;class#Controller#0" />
+            <element signature="method#googleTransalate#0;class#Controller#0" />
+            <element signature="method#addWord#0;class#Controller#0" />
+            <element signature="method#Found#0;class#Controller#0" />
+            <element signature="method#editWord#0;class#Controller#0" />
+            <element signature="method#ggTran2#0;class#Controller#0" />
+            <element signature="method#Alert2#0;class#Controller#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EVDictionary/analyzeData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="36" column="116" lean-forward="true" selection-start-line="36" selection-start-column="12" selection-end-line="36" selection-end-column="116" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#analyzeData#0;class#analyzeData#0" />
+            <element signature="method#analyzeData#1;class#analyzeData#0" />
+            <element signature="method#getData#0;class#analyzeData#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>asg1-beyonder:jar</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>asg1-beyonder</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>apache-maven-3.5</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
