@@ -5,12 +5,20 @@ import uet.oop.bomberman.Game;
 import uet.oop.bomberman.entities.LayeredEntity;
 import uet.oop.bomberman.entities.character.Bomber;
 import uet.oop.bomberman.entities.character.enemy.Balloon;
+import uet.oop.bomberman.entities.character.enemy.Oneal;
 import uet.oop.bomberman.entities.tile.Grass;
 import uet.oop.bomberman.entities.tile.destroyable.Brick;
+import uet.oop.bomberman.entities.tile.item.BombItem;
+import uet.oop.bomberman.entities.tile.item.FlameItem;
 import uet.oop.bomberman.entities.tile.item.SpeedItem;
 import uet.oop.bomberman.exceptions.LoadLevelException;
 import uet.oop.bomberman.graphics.Screen;
 import uet.oop.bomberman.graphics.Sprite;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.util.Scanner;
 
 public class FileLevelLoader extends LevelLoader {
 
@@ -26,8 +34,51 @@ public class FileLevelLoader extends LevelLoader {
 	
 	@Override
 	public void loadLevel(int level) {
+
 		// TODO: đọc dữ liệu từ tệp cấu hình /levels/Level{level}.txt
 		// TODO: cập nhật các giá trị đọc được vào _width, _height, _level, _map
+		ClassLoader classLoader = getClass().getClassLoader();
+		File file = new File(classLoader.getResource("levels/Level" + level + ".txt").getFile());
+		try {
+			/**
+			 * classloader to take file from resource
+			 */
+			Scanner a = new Scanner(file);
+			// BufferedReader b = new BufferedReader(new FileReader("test.txt"));
+			while(a.hasNextInt()){
+
+				_level =  a.nextInt();
+
+				_height =  a.nextInt();
+
+				_width = a.nextInt();
+
+			}
+
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		_map = new char[_height][_width];
+		try {
+			BufferedReader a = new BufferedReader(new FileReader(file));
+			a.readLine();
+			String str;
+			int i=0,j;
+			while ((str = a.readLine()) != null) {
+
+
+				for (j = 0; j < _width; j++) {
+
+					_map[i][j] = str.charAt(j);
+				}
+				i++;
+			}
+			a.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		//Done
 	}
 
 	@Override
@@ -37,6 +88,7 @@ public class FileLevelLoader extends LevelLoader {
 
 		// TODO: phần code mẫu ở dưới để hướng dẫn cách thêm các loại Entity vào game
 		// TODO: hãy xóa nó khi hoàn thành chức năng load màn chơi từ tệp cấu hình
+		/**
 		// thêm Wall
 		for (int x = 0; x < 20; x++) {
 			for (int y = 0; y < 20; y++) {
@@ -47,7 +99,7 @@ public class FileLevelLoader extends LevelLoader {
 		}
 
 		// thêm Bomber
-		int xBomber = 1, yBomber = 1;
+		int xBomber = 4, yBomber = 1;
 		_board.addCharacter( new Bomber(Coordinates.tileToPixel(xBomber), Coordinates.tileToPixel(yBomber) + Game.TILES_SIZE, _board) );
 		Screen.setOffset(0, 0);
 		_board.addEntity(xBomber + yBomber * _width, new Grass(xBomber, yBomber, Sprite.grass));
@@ -74,7 +126,83 @@ public class FileLevelLoader extends LevelLoader {
 					new SpeedItem(xI, yI, Sprite.powerup_flames),
 					new Brick(xI, yI, Sprite.brick)
 				)
-		);
+		);*/
+		Sprite wall = Sprite.wall;
+		Sprite grass = Sprite.grass;
+		Sprite brick = Sprite.brick;
+		Sprite flames_item = Sprite.powerup_flames;
+		Sprite bomb_item = Sprite.powerup_bombs;
+		Sprite speed_item = Sprite.powerup_speed;
+		// hiển thị thông tin lên frame từ file
+		// tọa độ pixel ngược lại với title ???
+		for (int y = 0;y<_height;y++) {
+			for (int x = 0;x<_width;x++) {
+				int pos = y*_width + x;
+				//thêm wall
+				if (_map[y][x] == '#')
+					_board.addEntity(pos,new Grass(x,y,wall));
+					// thêm bomber
+				else if (_map[y][x] == 'p'){
+					_board.addCharacter( new Bomber(Coordinates.tileToPixel(x), Coordinates.tileToPixel(y) + Game.TILES_SIZE, _board) );
+					Screen.setOffset(0, 0);
+					_board.addEntity(pos, new Grass(x, y, grass));
+				}
+				// thêm Enemy (Ballon)
+				else if (_map[y][x] == '1') {
+					_board.addCharacter(new Balloon(Coordinates.tileToPixel(x), Coordinates.tileToPixel(y) + Game.TILES_SIZE, _board));
+					_board.addEntity(pos, new Grass(x,y , grass));
+				}
+				// thêm Enemy (Onereal)
+				else if (_map[y][x] == '2') {
+					_board.addCharacter(new Oneal(Coordinates.tileToPixel(x), Coordinates.tileToPixel(y) + Game.TILES_SIZE, _board));
+					_board.addEntity(pos, new Grass(x, y, grass));
+				}
+
+				// thêm Brick
+				else if (_map[y][x] == '*') {
+					_board.addEntity(pos,
+							new LayeredEntity(x, y,
+									new Grass(x, y, grass),
+									new Brick(x, y, brick)
+							)
+					);
+				}
+				// thêm Item kèm Brick che phủ ở trên
+				else if (_map[y][x] == 'f') {
+					_board.addEntity(pos,
+							new LayeredEntity(x, y,
+									new Grass(x, y, grass),
+									new FlameItem(x, y, flames_item),
+									new Brick(x, y , brick)
+							)
+					);
+				}
+				//	speed
+				else if (_map[y][x] == 's') {
+					_board.addEntity(pos,
+							new LayeredEntity(x, y,
+									new Grass(x, y, grass),
+									new SpeedItem(x, y, speed_item),
+									new Brick(x, y , brick)
+							)
+					);
+				}
+				//	more bomb
+				else if (_map[y][x] == 'b') {
+					_board.addEntity(pos,
+							new LayeredEntity(x, y,
+									new Grass(x, y, grass),
+									new BombItem(x, y, bomb_item),
+									new Brick(x, y , brick)
+							)
+					);
+				}
+				else
+					_board.addEntity(pos,new Grass(x, y, grass));
+			}
+
+		}
+
 	}
 
 }
