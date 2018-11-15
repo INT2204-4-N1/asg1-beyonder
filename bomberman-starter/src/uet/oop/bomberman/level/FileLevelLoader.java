@@ -37,12 +37,12 @@ public class FileLevelLoader extends LevelLoader {
 
 		// TODO: đọc dữ liệu từ tệp cấu hình /levels/Level{level}.txt
 		// TODO: cập nhật các giá trị đọc được vào _width, _height, _level, _map
-		ClassLoader classLoader = getClass().getClassLoader();
+		/**ClassLoader classLoader = getClass().getClassLoader();
 		File file = new File(classLoader.getResource("levels/Level" + level + ".txt").getFile());
 		try {
 			/**
 			 * classloader to take file from resource
-			 */
+
 			Scanner a = new Scanner(file);
 			// BufferedReader b = new BufferedReader(new FileReader("test.txt"));
 			while(a.hasNextInt()){
@@ -79,6 +79,7 @@ public class FileLevelLoader extends LevelLoader {
 			e.printStackTrace();
 		}
 		//Done
+		 */
 	}
 
 	@Override
@@ -88,7 +89,7 @@ public class FileLevelLoader extends LevelLoader {
 
 		// TODO: phần code mẫu ở dưới để hướng dẫn cách thêm các loại Entity vào game
 		// TODO: hãy xóa nó khi hoàn thành chức năng load màn chơi từ tệp cấu hình
-		/**
+
 		// thêm Wall
 		for (int x = 0; x < 20; x++) {
 			for (int y = 0; y < 20; y++) {
@@ -99,7 +100,7 @@ public class FileLevelLoader extends LevelLoader {
 		}
 
 		// thêm Bomber
-		int xBomber = 4, yBomber = 1;
+		int xBomber = 1, yBomber = 1;
 		_board.addCharacter( new Bomber(Coordinates.tileToPixel(xBomber), Coordinates.tileToPixel(yBomber) + Game.TILES_SIZE, _board) );
 		Screen.setOffset(0, 0);
 		_board.addEntity(xBomber + yBomber * _width, new Grass(xBomber, yBomber, Sprite.grass));
@@ -126,7 +127,8 @@ public class FileLevelLoader extends LevelLoader {
 					new SpeedItem(xI, yI, Sprite.powerup_flames),
 					new Brick(xI, yI, Sprite.brick)
 				)
-		);*/
+		);
+		/**
 		Sprite wall = Sprite.wall;
 		Sprite grass = Sprite.grass;
 		Sprite brick = Sprite.brick;
@@ -201,7 +203,7 @@ public class FileLevelLoader extends LevelLoader {
 					_board.addEntity(pos,new Grass(x, y, grass));
 			}
 
-		}
+		}*/
 
 	}
 
