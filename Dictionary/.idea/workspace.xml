@@ -7,17 +7,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6890bdb3-0ba4-401e-867f-62a0f6b78025" name="Default Changelist" comment="Fix lỗi cực mạnh">
-      <change beforePath="$PROJECT_DIR$/artifacts/asg1_beyonder_jar/log/server.log" beforeDir="false" afterPath="$PROJECT_DIR$/artifacts/asg1_beyonder_jar/log/server.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/server.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/server.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/asg1_beyonder/log/server.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/asg1-beyonder/EVDictionary/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/asg1-beyonder/EVDictionary/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/asg1-beyonder/EVDictionary/GoogleTransalate.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/asg1-beyonder/EVDictionary/GoogleTransalate.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/asg1-beyonder/EVDictionary/analyzeData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/asg1-beyonder/EVDictionary/analyzeData.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/asg1-beyonder/EVDictionary/data/E_V.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/asg1-beyonder/EVDictionary/data/E_V.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EVDictionary/DictionaryLayout.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EVDictionary/DictionaryLayout.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EVDictionary/analyzeData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EVDictionary/analyzeData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EVDictionary/data/E_V.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/EVDictionary/data/E_V.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EVDictionary/data/V_E.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/EVDictionary/data/V_E.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bomberman-starter/src/uet/oop/bomberman/level/FileLevelLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/../bomberman-starter/src/uet/oop/bomberman/level/FileLevelLoader.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -103,6 +95,16 @@
         </counts>
       </usages-collector>
     </session>
+    <session id="1580934864">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="2" />
+          <entry key="project.open.time.0" value="1" />
+          <entry key="project.open.time.3" value="1" />
+          <entry key="project.opened" value="2" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
@@ -118,12 +120,13 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/EVDictionary/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-544">
-              <caret line="33" column="51" selection-start-line="33" selection-start-column="51" selection-end-line="33" selection-end-column="51" />
+            <state relative-caret-position="425">
+              <caret line="420" column="13" lean-forward="true" selection-start-line="408" selection-start-column="12" selection-end-line="420" selection-end-column="13" />
               <folding>
+                <element signature="imports" expanded="true" />
                 <element signature="method#initialize#0;class#Controller#0" />
                 <element signature="method#Read#0;class#Controller#0" />
                 <element signature="method#showWord#0;class#Controller#0" />
@@ -152,12 +155,12 @@
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/EVDictionary/EVDictionary.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder" />
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="697">
               <caret line="41" selection-start-line="41" selection-end-line="41" />
             </state>
           </provider>
+          <provider editor-type-id="JavaFX-Scene-Builder" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -175,11 +178,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/EVDictionary/analyzeData.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="36" column="116" lean-forward="true" selection-start-line="36" selection-start-column="12" selection-end-line="36" selection-end-column="116" />
+            <state relative-caret-position="11">
+              <caret line="49" column="50" lean-forward="true" selection-start-line="49" selection-start-column="50" selection-end-line="49" selection-end-column="50" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#analyzeData#0;class#analyzeData#0" />
@@ -222,7 +225,7 @@
     </findStrings>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -251,10 +254,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="5" />
-    <option name="y" value="45" />
-    <option name="width" value="1615" />
-    <option name="height" value="880" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1386" />
+    <option name="height" value="788" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -276,7 +279,7 @@
       </profile-state>
     </entry>
   </component>
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectView">
@@ -284,22 +287,21 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="asg1-beyonder" type="b2602c69:ProjectViewProjectNode" />
-              <item name="asg1-beyonder" type="462c0819:PsiDirectoryNode" />
+              <item name="Dictionary" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Dictionary" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="asg1-beyonder" type="b2602c69:ProjectViewProjectNode" />
-              <item name="asg1-beyonder" type="462c0819:PsiDirectoryNode" />
+              <item name="Dictionary" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Dictionary" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="asg1-beyonder" type="b2602c69:ProjectViewProjectNode" />
-              <item name="asg1-beyonder" type="462c0819:PsiDirectoryNode" />
+              <item name="Dictionary" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Dictionary" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="EVDictionary" type="462c0819:PsiDirectoryNode" />
             </path>
@@ -307,17 +309,18 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="G:/ms team/asg1-mangekyousharingan" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.JavaFX" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -475,6 +478,8 @@
       <workItem from="1540363457220" duration="149000" />
       <workItem from="1540363913680" duration="14000" />
       <workItem from="1540962469634" duration="341000" />
+      <workItem from="1543165502845" duration="83000" />
+      <workItem from="1543167573144" duration="745000" />
     </task>
     <task id="LOCAL-00001" summary="update TextToSpeech">
       <created>1539270929615</created>
@@ -606,13 +611,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="131231000" />
+    <option name="totallyTimeSpent" value="132059000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21558245" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22163388" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -747,8 +752,8 @@
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/EVDictionary/data/E_V.txt">
-      <provider editor-type-id="text-editor" />
       <provider selected="true" editor-type-id="LargeFileEditor" />
+      <provider editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/EVDictionary/data/V_E.txt">
       <provider selected="true" editor-type-id="text-editor" />
@@ -774,12 +779,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/EVDictionary/EVDictionary.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="697">
           <caret line="41" selection-start-line="41" selection-end-line="41" />
         </state>
       </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/EVDictionary/Voice.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -805,11 +810,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/EVDictionary/analyzeData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="11">
+          <caret line="49" column="50" lean-forward="true" selection-start-line="49" selection-start-column="50" selection-end-line="49" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#analyzeData#0;class#analyzeData#0" />
+            <element signature="method#analyzeData#1;class#analyzeData#0" />
+            <element signature="method#getData#0;class#analyzeData#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/EVDictionary/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-544">
-          <caret line="33" column="51" selection-start-line="33" selection-start-column="51" selection-end-line="33" selection-end-column="51" />
+        <state relative-caret-position="425">
+          <caret line="420" column="13" lean-forward="true" selection-start-line="408" selection-start-column="12" selection-end-line="420" selection-end-column="13" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="method#initialize#0;class#Controller#0" />
             <element signature="method#Read#0;class#Controller#0" />
             <element signature="method#showWord#0;class#Controller#0" />
@@ -822,19 +841,6 @@
             <element signature="method#editWord#0;class#Controller#0" />
             <element signature="method#ggTran2#0;class#Controller#0" />
             <element signature="method#Alert2#0;class#Controller#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EVDictionary/analyzeData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="36" column="116" lean-forward="true" selection-start-line="36" selection-start-column="12" selection-end-line="36" selection-end-column="116" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#analyzeData#0;class#analyzeData#0" />
-            <element signature="method#analyzeData#1;class#analyzeData#0" />
-            <element signature="method#getData#0;class#analyzeData#0" />
           </folding>
         </state>
       </provider>
