@@ -96,6 +96,7 @@ public class FileLevelLoader extends LevelLoader {
 		Sprite wall = Sprite.wall;
 		Sprite grass = Sprite.grass;
 		Sprite brick = Sprite.brick;
+		Sprite portal = Sprite.portal;
 		Sprite flames_item = Sprite.powerup_flames;
 		Sprite bomb_item = Sprite.powerup_bombs;
 		Sprite speed_item = Sprite.powerup_speed;
@@ -106,7 +107,7 @@ public class FileLevelLoader extends LevelLoader {
 				int pos = y*_width + x;
 				//thêm wall
 				if (_map[y][x] == '#')
-					_board.addEntity(pos,new Grass(x,y,wall));
+					_board.addEntity(pos,new Wall(x,y,wall));
 					// thêm bomber
 				else if (_map[y][x] == 'p'){
 					_board.addCharacter( new Bomber(Coordinates.tileToPixel(x), Coordinates.tileToPixel(y) + Game.TILES_SIZE, _board) );
@@ -130,6 +131,16 @@ public class FileLevelLoader extends LevelLoader {
 							new LayeredEntity(x, y,
 									new Grass(x, y, grass),
 									new Brick(x, y, brick)
+							)
+					);
+				}
+				// thêm Portal kèm Brick che phủ ở trên
+				else if (_map[y][x] == 'x'){
+					_board.addEntity(pos,
+							new LayeredEntity(x,y,
+									new Grass(x,y,grass),
+									new Portal(x,y,portal),
+									new Brick(x,y,brick)
 							)
 					);
 				}
@@ -168,7 +179,6 @@ public class FileLevelLoader extends LevelLoader {
 			}
 
 		}
-
 	}
 
 }
