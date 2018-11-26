@@ -7,6 +7,8 @@ import uet.oop.bomberman.entities.character.Bomber;
 import uet.oop.bomberman.entities.character.enemy.Balloon;
 import uet.oop.bomberman.entities.character.enemy.Oneal;
 import uet.oop.bomberman.entities.tile.Grass;
+import uet.oop.bomberman.entities.tile.Portal;
+import uet.oop.bomberman.entities.tile.Wall;
 import uet.oop.bomberman.entities.tile.destroyable.Brick;
 import uet.oop.bomberman.entities.tile.item.BombItem;
 import uet.oop.bomberman.entities.tile.item.FlameItem;
@@ -129,82 +131,93 @@ public class FileLevelLoader extends LevelLoader {
 //                )
 //        );
 
-         Sprite wall = Sprite.wall;
-         Sprite grass = Sprite.grass;
-         Sprite brick = Sprite.brick;
-         Sprite flames_item = Sprite.powerup_flames;
-         Sprite bomb_item = Sprite.powerup_bombs;
-         Sprite speed_item = Sprite.powerup_speed;
-         // hiển thị thông tin lên frame từ file
-         // tọa độ pixel ngược lại với title ???
-         for (int y = 0;y<_height;y++) {
-         for (int x = 0;x<_width;x++) {
-         int pos = y*_width + x;
-         //thêm wall
-         if (_map[y][x] == '#')
-         _board.addEntity(pos,new Grass(x,y,wall));
-         // thêm bomber
-         else if (_map[y][x] == 'p'){
-         _board.addCharacter( new Bomber(Coordinates.tileToPixel(x), Coordinates.tileToPixel(y) + Game.TILES_SIZE, _board) );
-         Screen.setOffset(0, 0);
-         _board.addEntity(pos, new Grass(x, y, grass));
-         }
-         // thêm Enemy (Ballon)
-         else if (_map[y][x] == '1') {
-         _board.addCharacter(new Balloon(Coordinates.tileToPixel(x), Coordinates.tileToPixel(y) + Game.TILES_SIZE, _board));
-         _board.addEntity(pos, new Grass(x,y , grass));
-         }
-         // thêm Enemy (Onereal)
-         else if (_map[y][x] == '2') {
-         _board.addCharacter(new Oneal(Coordinates.tileToPixel(x), Coordinates.tileToPixel(y) + Game.TILES_SIZE, _board));
-         _board.addEntity(pos, new Grass(x, y, grass));
-         }
+        Sprite wall = Sprite.wall;
+        Sprite grass = Sprite.grass;
+        Sprite brick = Sprite.brick;
+        Sprite portal = Sprite.portal;
+        Sprite flames_item = Sprite.powerup_flames;
+        Sprite bomb_item = Sprite.powerup_bombs;
+        Sprite speed_item = Sprite.powerup_speed;
+        // hiển thị thông tin lên frame từ file
+        // tọa độ pixel ngược lại với title ???
+        for (int y = 0;y<_height;y++) {
+            for (int x = 0;x<_width;x++) {
+                int pos = y*_width + x;
+                //thêm wall
+                if (_map[y][x] == '#')
+                    _board.addEntity(pos,new Wall(x,y,wall));
+                    // thêm bomber
+                else if (_map[y][x] == 'p'){
+                    _board.addCharacter( new Bomber(Coordinates.tileToPixel(x), Coordinates.tileToPixel(y) + Game.TILES_SIZE, _board) );
+                    Screen.setOffset(0, 0);
+                    _board.addEntity(pos, new Grass(x, y, grass));
+                }
+                // thêm Enemy (Ballon)
+                else if (_map[y][x] == '1') {
+                    _board.addCharacter(new Balloon(Coordinates.tileToPixel(x), Coordinates.tileToPixel(y) + Game.TILES_SIZE, _board));
+                    _board.addEntity(pos, new Grass(x,y , grass));
+                }
+                // thêm Enemy (Onereal)
+                else if (_map[y][x] == '2') {
+                    _board.addCharacter(new Oneal(Coordinates.tileToPixel(x), Coordinates.tileToPixel(y) + Game.TILES_SIZE, _board));
+                    _board.addEntity(pos, new Grass(x, y, grass));
+                }
 
-         // thêm Brick
-         else if (_map[y][x] == '*') {
-         _board.addEntity(pos,
-         new LayeredEntity(x, y,
-         new Grass(x, y, grass),
-         new Brick(x, y, brick)
-         )
-         );
-         }
-         // thêm Item kèm Brick che phủ ở trên
-         else if (_map[y][x] == 'f') {
-         _board.addEntity(pos,
-         new LayeredEntity(x, y,
-         new Grass(x, y, grass),
-         new FlameItem(x, y, flames_item),
-         new Brick(x, y , brick)
-         )
-         );
-         }
-         //	speed
-         else if (_map[y][x] == 's') {
-         _board.addEntity(pos,
-         new LayeredEntity(x, y,
-         new Grass(x, y, grass),
-         new SpeedItem(x, y, speed_item),
-         new Brick(x, y , brick)
-         )
-         );
-         }
-         //	more bomb
-         else if (_map[y][x] == 'b') {
-         _board.addEntity(pos,
-         new LayeredEntity(x, y,
-         new Grass(x, y, grass),
-         new BombItem(x, y, bomb_item),
-         new Brick(x, y , brick)
-         )
-         );
-         }
-         else
-         _board.addEntity(pos,new Grass(x, y, grass));
-         }
+                // thêm Brick
+                else if (_map[y][x] == '*') {
+                    _board.addEntity(pos,
+                            new LayeredEntity(x, y,
+                                    new Grass(x, y, grass),
+                                    new Brick(x, y, brick)
+                            )
+                    );
+                }
+                // thêm Portal kèm Brick che phủ ở trên
+                else if (_map[y][x] == 'x'){
+                    _board.addEntity(pos,
+                            new LayeredEntity(x,y,
+                                    new Grass(x,y,grass),
+                                    new Portal(x,y,portal),
+                                    new Brick(x,y,brick)
+                            )
+                    );
+                }
+                // thêm Item kèm Brick che phủ ở trên
+                else if (_map[y][x] == 'f') {
+                    _board.addEntity(pos,
+                            new LayeredEntity(x, y,
+                                    new Grass(x, y, grass),
+                                    new FlameItem(x, y, flames_item),
+                                    new Brick(x, y , brick)
+                            )
+                    );
+                }
+                //	speed
+                else if (_map[y][x] == 's') {
+                    _board.addEntity(pos,
+                            new LayeredEntity(x, y,
+                                    new Grass(x, y, grass),
+                                    new SpeedItem(x, y, speed_item),
+                                    new Brick(x, y , brick)
+                            )
+                    );
+                }
+                //	more bomb
+                else if (_map[y][x] == 'b') {
+                    _board.addEntity(pos,
+                            new LayeredEntity(x, y,
+                                    new Grass(x, y, grass),
+                                    new BombItem(x, y, bomb_item),
+                                    new Brick(x, y , brick)
+                            )
+                    );
+                }
+                else
+                    _board.addEntity(pos,new Grass(x, y, grass));
+            }
 
-         }
+        }
 
     }
-
 }
+

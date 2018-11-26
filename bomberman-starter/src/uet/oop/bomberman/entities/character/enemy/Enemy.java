@@ -79,6 +79,32 @@ public abstract class Enemy extends Character {
 		// TODO: sử dụng canMove() để kiểm tra xem có thể di chuyển tới điểm đã tính toán hay không
 		// TODO: sử dụng move() để di chuyển
 		// TODO: nhớ cập nhật lại giá trị cờ _moving khi thay đổi trạng thái di chuyển
+		double xE = 0,yE = 0;
+
+		if (_steps <= 0){
+			_direction = _ai.calculateDirection();
+			_steps = MAX_STEPS;
+		}
+
+
+		//xuống/phải/trái/lên tương ứng với các giá trị 0/1/2/3
+		if (_direction == 0)  //move down
+			yE--;
+		if (_direction == 2)    // move up
+			yE++;
+		if (_direction == 3)    // move left
+			xE--;
+		if (_direction == 1)    // move right
+			xE++;
+		if (canMove(xE,yE)){
+			_steps -= 1+rest;
+			move(xE* _speed,yE * _speed);
+			_moving = true;
+		}
+		else {
+			_steps = 0;
+			_moving = false;
+		}
 	}
 	
 	@Override
@@ -91,14 +117,54 @@ public abstract class Enemy extends Character {
 	@Override
 	public boolean canMove(double x, double y) {
 		// TODO: kiểm tra có đối tượng tại vị trí chuẩn bị di chuyển đến và có thể di chuyển tới đó hay không
-		return false;
+		double xr = _x,yr = _y -16;	// trừ 16 cho vị trí thêm chính xác
+		// xử lí lỗi enemy shaking khi di chuyển
+		// down
+		if (_direction == 0) {
+			yr += (_sprite.getSize() -1);
+			xr += _sprite.getSize()/2;
+		}
+		// right
+		if (_direction == 1){
+			yr += _sprite.getSize()/2;
+			xr += 1;
+		}
+		// up
+		if (_direction == 2){
+			yr += 1;
+			xr += _sprite.getSize()/2;
+		}
+		// left
+		if (_direction == 3){
+			yr += _sprite.getSize()/2;
+			xr += _sprite.getSize() - 1;
+
+		}
+		int xE = Coordinates.pixelToTile(xr) + (int) x;
+		int yE = Coordinates.pixelToTile(yr) + (int) y;
+		Entity a = _board.getEntity(xE,yE,this);
+		// vị trí của entity enemy có va chạm với vị trí định đi đến không
+		return a.collide(this);
+
 	}
 
 	@Override
 	public boolean collide(Entity e) {
 		// TODO: xử lý va chạm với Flame
 		// TODO: xử lý va chạm với Bomber
+		// vị trí entity hiện tại là flame
+		if (e instanceof Flame){
+			kill();
+			return false;
+		}
+		// vị trí entity hiện tại là bomber
+		// downcasting entity e = bomber
+		if (e instanceof Bomber){
+			((Bomber) e).kill();
+			return false;
+		}
 		return true;
+
 	}
 	
 	@Override

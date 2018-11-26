@@ -187,6 +187,19 @@ public class Board implements IRender {
 		
 		return null;
 	}
+	// Xét xem có character tại vị trí x,y hay không
+	public Character getCharacterAt(double x,double y){
+		Iterator<Character> itr = _characters.iterator();
+		Character curr;
+		while (itr.hasNext()){
+			curr = itr.next();
+
+			if (curr.getXTile() == x && curr.getYTile() == y){
+				return curr;
+			}
+		}
+		return null;
+	}
 	
 	public Character getCharacterAtExcluding(int x, int y, Character a) {
 		Iterator<Character> itr = _characters.iterator();
