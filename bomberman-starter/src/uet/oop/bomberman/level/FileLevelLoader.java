@@ -177,7 +177,7 @@ public class FileLevelLoader extends LevelLoader {
                     _board.addEntity(pos,
                             new LayeredEntity(x,y,
                                     new Grass(x,y,grass),
-                                    new Portal(x,y,portal),
+                                    new Portal(x,y,_board,portal),
                                     new Brick(x,y,brick)
                             )
                     );
