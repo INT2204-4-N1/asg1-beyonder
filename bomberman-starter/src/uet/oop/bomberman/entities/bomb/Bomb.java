@@ -1,5 +1,7 @@
 package uet.oop.bomberman.entities.bomb;
 
+import javazoom.jl.decoder.JavaLayerException;
+import javazoom.jl.player.Player;
 import uet.oop.bomberman.Board;
 import uet.oop.bomberman.Game;
 import uet.oop.bomberman.entities.AnimatedEntitiy;
@@ -9,6 +11,9 @@ import uet.oop.bomberman.entities.character.Character;
 import uet.oop.bomberman.graphics.Screen;
 import uet.oop.bomberman.graphics.Sprite;
 import uet.oop.bomberman.level.Coordinates;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 
 public class Bomb extends AnimatedEntitiy {
 
@@ -39,8 +44,11 @@ public class Bomb extends AnimatedEntitiy {
 			
 			if(_timeAfter > 0) 
 				_timeAfter--;
-			else
+			else {
+				soundExplosion();
 				remove();
+
+			}
 		}
 			
 		animate();
@@ -105,6 +113,24 @@ public class Bomb extends AnimatedEntitiy {
 		}
 		
 		return null;
+	}
+	protected void soundExplosion() {
+		// TODO: xử lí âm thanh
+		Thread thread = new Thread(new Runnable() {
+			@Override
+			public void run() {
+				try {
+					Player player = new Player(new FileInputStream("ExBig.mp3"));
+					player.play();
+					player.close();
+				} catch (JavaLayerException e) {
+					e.printStackTrace();
+				} catch (FileNotFoundException e) {
+					e.printStackTrace();
+				}
+			}
+		});
+		thread.start();
 	}
 
 	@Override

@@ -83,11 +83,11 @@ public class Flame extends Entity {
 			Entity a = _board.getEntity(xF, yF, null);
 			// nếu có character nào tại vị trí flame -> cho phép flame đi xuyên qua
 			if (a instanceof Character)
-				radius++;
+				++radius;
 			// nếu gặp tường thì bị chặn lại, không cho đi qua + radius dừng lại tại vị trí tường
 			if (!a.collide(this))
 				break;
-			radius ++;
+			++radius ;
 		}
 		return radius;
 
