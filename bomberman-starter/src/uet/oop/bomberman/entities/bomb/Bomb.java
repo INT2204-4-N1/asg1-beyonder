@@ -12,6 +12,7 @@ import uet.oop.bomberman.graphics.Screen;
 import uet.oop.bomberman.graphics.Sprite;
 import uet.oop.bomberman.level.Coordinates;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
@@ -118,9 +119,12 @@ public class Bomb extends AnimatedEntitiy {
 		// TODO: xử lí âm thanh
 		Thread thread = new Thread(new Runnable() {
 			@Override
+
 			public void run() {
+				ClassLoader classLoader = getClass().getClassLoader();
+				File file = new File(classLoader.getResource("Sound/Explode.mp3" ).getFile());
 				try {
-					Player player = new Player(new FileInputStream("ExBig.mp3"));
+					Player player = new Player(new FileInputStream(file));
 					player.play();
 					player.close();
 				} catch (JavaLayerException e) {
