@@ -20,7 +20,7 @@ public class SpeedItem extends Item {
 			addBomberSpeed(0.2);
 
 			remove();
-			return true;
+			//return true;
 		}
 		return false;
 		// TODO: xử lý Bomber ăn Item

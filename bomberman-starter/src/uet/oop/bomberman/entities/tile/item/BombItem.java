@@ -21,7 +21,7 @@ public class BombItem extends Item {
 			addBombRate(1);
 
 			remove();
-			return true;
+			//return true;
 		}
 
 		return false;

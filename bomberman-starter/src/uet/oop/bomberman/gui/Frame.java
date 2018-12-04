@@ -1,6 +1,7 @@
 package uet.oop.bomberman.gui;
 
 import uet.oop.bomberman.Game;
+import uet.oop.bomberman.gui.Menu.menu;
 
 import javax.swing.*;
 import java.awt.*;
@@ -17,6 +18,7 @@ public class Frame extends JFrame {
 	private Game _game;
 
 	public Frame() {
+		setJMenuBar(new menu(this));
 		
 		_containerpane = new JPanel(new BorderLayout());
 		_gamepane = new GamePanel(this);
@@ -36,6 +38,9 @@ public class Frame extends JFrame {
 		setVisible(true);	
 		
 		_game.start();
+	}
+	public void newGame() {
+		_game.getBoard().newGame();
 	}
 	
 	public void setTime(int time) {

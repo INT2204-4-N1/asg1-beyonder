@@ -1,13 +1,21 @@
 package uet.oop.bomberman;
 
+import javazoom.jl.decoder.JavaLayerException;
+import javazoom.jl.player.Player;
 import uet.oop.bomberman.graphics.Screen;
 import uet.oop.bomberman.gui.Frame;
 import uet.oop.bomberman.input.Keyboard;
 
+import javax.sound.sampled.*;
 import java.awt.*;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.net.URL;
 
 /**
  * Tạo vòng lặp cho game, lưu trữ một vài tham số cấu hình toàn cục,
@@ -110,6 +118,7 @@ public class Game extends Canvas {
 	
 	public void start() {
 		_running = true;
+		ThemeSong();
 		
 		long  lastTime = System.nanoTime();
 		long timer = System.currentTimeMillis();
@@ -153,6 +162,31 @@ public class Game extends Canvas {
 					--_screenDelay;
 			}
 		}
+	}
+	public void ThemeSong(){
+
+				ClassLoader classLoader = getClass().getClassLoader();
+				Clip clip;
+				URL url = classLoader.getResource("Sound/theme.mp3" );
+
+				try {
+                    AudioInputStream audio = AudioSystem.getAudioInputStream(url);
+                    clip = AudioSystem.getClip();
+                    clip.open(audio);
+                    clip.setFramePosition(0);
+                    clip.start();
+                    clip.loop(3);
+
+
+
+		} catch (UnsupportedAudioFileException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (LineUnavailableException e) {
+			e.printStackTrace();
+		}
+
 	}
 	
 	public static double getBomberSpeed() {

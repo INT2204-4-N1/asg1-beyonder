@@ -18,6 +18,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+
+
 /**
  * Quản lý thao tác điều khiển, load level, render các màn hình của game
  */
@@ -44,6 +46,10 @@ public class Board implements IRender {
 		
 		loadLevel(1); //start in level 1
 	}
+	public void newGame() {
+		resetProperties();
+		loadLevel(1);
+	}
 	
 	@Override
 	public void update() {
@@ -59,6 +65,16 @@ public class Board implements IRender {
 			Character a = _characters.get(i);
 			if(a.isRemoved()) _characters.remove(i);
 		}
+	}
+	private void resetProperties() {
+		_points = Game.POINTS;
+//		_live = Game.LIVES;
+//		Bomber._powerups.clear();
+
+		_game.bomberSpeed = 1.0;
+		_game.bombRadius = 1;
+		_game.bombRate = 1;
+
 	}
 
 	@Override
